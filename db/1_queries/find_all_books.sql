@@ -1,3 +1,3 @@
-SELECT owners.name, price, year, author, type, title, genre
+SELECT users.name, price, year, author, title, genre
 FROM books
-JOIN owners ON owners.id = owner_id;
+JOIN users ON owner_id = users.id;
