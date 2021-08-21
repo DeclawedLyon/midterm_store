@@ -5,6 +5,7 @@ DROP TABLE IF EXISTS sells CASCADE;
 DROP TABLE IF EXISTS books CASCADE;
 DROP TABLE IF EXISTS stores CASCADE;
 
+-- Add users Table
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -12,21 +13,21 @@ CREATE TABLE users (
   password VARCHAR(255) NOT NULL,
   store_id INTEGER REFERENCES stores(id) ON DELETE CASCADE
 );
-
+-- Add favorites Table
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
-)
-
+);
+-- Add sells Table
 CREATE TABLE sells (
 id SERIAL PRIMARY KEY NOT NULL,
 book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
 sold_date DATE NOT NULL,
 total INTEGER NOT NULL,
 user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-)
-
+);
+-- Add books Table
 CREATE TABLE books (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
@@ -36,10 +37,10 @@ CREATE TABLE books (
   genre VARCHAR(255) NOT NULL,
   year SMALLINT NOT NULL,
   bookcover VARCHAR(255) NOT NULL
-)
-
+);
+-- Add stores Table
 CREATE TABLE stores (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
-)
+);
