@@ -1,4 +1,4 @@
--- Users table seeds here (Example)
+-- Users table seeds here
 INSERT INTO users (name, email,password)
 VALUES ('Alice','aaaaaa@yahoo.com', '111111');
 INSERT INTO users (name,email,password)
@@ -12,7 +12,7 @@ VALUES ('Andy','eeeeee@live.com', '44444');
 INSERT INTO users (name,email,password)
 VALUES ('Tom','ffffff@hot.com', '66666');
 
-
+-- Books table seeds here
 INSERT INTO books (owner_id,price,author,title,genre,year,bookcover)
 VALUES(1, 25, 'Abam','King Without Glory','comic',2019,'https://images.pexels.com/photos/3747258/pexels-photo-3747258.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
 INSERT INTO books (owner_id,price,author,title,genre,year,bookcover)
@@ -30,6 +30,7 @@ VALUES(2, 65, 'Zac','Trees And Rebels','novel',2014,'https://images.pexels.com/p
 INSERT INTO books (owner_id,price,author,title,genre,year,bookcover)
 VALUES(3, 77, 'Keson','Down The Road','novel',2018,'https://images.pexels.com/photos/3747149/pexels-photo-3747149.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 
+-- favorites table seeds here
 INSERT INTO favorites (user_id,book_id)
 VALUES (1,2);
 INSERT INTO favorites (user_id,book_id)
