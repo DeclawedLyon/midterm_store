@@ -1,9 +1,19 @@
 -- Drop and recreate Users table (Example)
+<<<<<<< HEAD:db/schema/01_users.sql
 -- DROP TABLE IF EXISTS users CASCADE;
 -- DROP TABLE IF EXISTS favorites CASCADE;
 -- DROP TABLE IF EXISTS sells CASCADE;
 -- DROP TABLE IF EXISTS books CASCADE;
 -- DROP TABLE IF EXISTS stores CASCADE;
+=======
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS books CASCADE;
+DROP TABLE IF EXISTS stores CASCADE;
+DROP TABLE IF EXISTS favorites CASCADE;
+DROP TABLE IF EXISTS sells CASCADE;
+
+-- Add users Table
+>>>>>>> 4893b5757bc9ec1cf45717ba0ce49a1af9b29e71:db/schema/01_database_schema.sql
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -25,15 +35,30 @@ CREATE TABLE stores (
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   book_id INTEGER REFERENCES books(id) ON DELETE CASCADE
 );
+<<<<<<< HEAD:db/schema/01_users.sql
+=======
+
+>>>>>>> 4893b5757bc9ec1cf45717ba0ce49a1af9b29e71:db/schema/01_database_schema.sql
 CREATE TABLE favorites (
   id SERIAL PRIMARY KEY NOT NULL,
   user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   book_id INTEGER REFERENCES books(id) ON DELETE CASCADE
 );
+<<<<<<< HEAD:db/schema/01_users.sql
 CREATE TABLE sells (
 id SERIAL PRIMARY KEY NOT NULL,
 book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
 sold_date DATE NOT NULL,
 total INTEGER NOT NULL,
 user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+=======
+
+CREATE TABLE sells (
+  id SERIAL PRIMARY KEY NOT NULL,
+  book_id INTEGER REFERENCES books(id) ON DELETE CASCADE,
+  sold_date DATE NOT NULL,
+  total INTEGER NOT NULL,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
+>>>>>>> 4893b5757bc9ec1cf45717ba0ce49a1af9b29e71:db/schema/01_database_schema.sql
 );
+
