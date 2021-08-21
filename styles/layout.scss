@@ -7,3 +7,39 @@ body {
     color: #244751;
   }
 }
+.head-title {
+  margin: 40px 0 40px 0;
+  text-align: center;
+}
+.logo {
+  padding: 40px 0;
+  text-align: center;
+  height: 3em;
+}
+
+.main-section {
+  width: 80%;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.book-one {
+  margin: 40px;
+  width: 200px;
+  height: 300px;
+  background-color: rgb(109, 114, 116);
+}
+
+.book-two {
+  margin: 40px;
+  width: 200px;
+  height: 300px;
+  background-color: rgb(109, 114, 116);
+}
+
+.book-name, .book-price {
+  text-align: center;
+}
