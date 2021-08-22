@@ -2,7 +2,7 @@ const bcrypt = require("bcrypt");
 
 module.exports = function (router, database) {
   // Create a new user
-  router.post("/", (req, res) => {
+  router.post("/register", (req, res) => {
     const user = req.body;
     user.password = bcrypt.hashSync(user.password, 12);
     database
