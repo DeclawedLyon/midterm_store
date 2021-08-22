@@ -2,7 +2,7 @@ module.exports = function (router, database) {
   router.get("/books", (req, res) => {
     database
       .getAllBooks(req.query, 20)
-      .then((properties) => res.send({ properties }))
+      .then((books) => res.send({ books }))
       .catch((e) => {
         console.error(e);
         res.send(e);
