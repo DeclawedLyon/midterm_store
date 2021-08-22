@@ -1,3 +1,7 @@
+//load.env
+require('dotenv').config()
+
+//server config
 const database = require("./database");
 const apiRoutes = require("./apiRoutes");
 const userRoutes = require("./userRoutes");
@@ -13,7 +17,7 @@ const app = express();
 app.use(
   cookieSession({
     name: "session",
-    keys: ["key1"],
+    keys: ["user_id"],
   })
 );
 
