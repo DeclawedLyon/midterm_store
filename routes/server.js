@@ -1,6 +1,12 @@
+//load.env
+require("dotenv").config();
+
+//server config
 const database = require("./database");
 const apiRoutes = require("./apiRoutes");
 const userRoutes = require("./userRoutes");
+const books = require("./books");
+const favorites = require("./favorites");
 
 const path = require("path");
 
@@ -13,22 +19,27 @@ const app = express();
 app.use(
   cookieSession({
     name: "session",
-    keys: ["key1"],
+    keys: ["user_id"],
   })
 );
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// /api/endpoints
-const apiRouter = express.Router();
-apiRoutes(apiRouter, database);
-app.use("/api", apiRouter);
+// /books/endpoints
+const books = express.Router();
+books(books, database);
+app.use("/books", books);
 
 // /user/endpoints
 const userRouter = express.Router();
 userRoutes(userRouter, database);
 app.use("/users", userRouter);
+
+// /favorites endpoint
+const favorites = express.Router();
+favorites(favorites, database);
+app.use("/favorites", favorites);
 
 app.use(express.static(path.join(__dirname, "../public")));
 
