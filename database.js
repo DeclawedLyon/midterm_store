@@ -5,6 +5,58 @@ const pool = new Pool({
   database: 'midterm'
 });
 
+const filterBooksByTitle = function(title) {
+  return pool
+  .query(`
+    SELECT *
+    FROM books
+    WHERE title LIKE '%$1%'
+    ORDER BY title
+  `, [title])
+  .then(result => result.rows[0])
+  .catch(err => err.message)
+}
+exports.filterBooksByTitle = filterBooksByTitle;
+
+const filterBooksByAuthor = function(author) {
+  return pool
+  .query(`
+    SELECT *
+    FROM books
+    WHERE author LIKE '%$1%'
+    ORDER BY author
+  `, [author])
+  .then(result => result.rows[0])
+  .catch(err => err.message)
+}
+exports.filterBooksByAuthor = filterBooksByAuthor;
+
+const filterBooksByGenre = function(genre) {
+  return pool
+  .query(`
+    SELECT *
+    FROM books
+    WHERE genre LIKE '%$1'
+    ORDER BY genre, title
+  `, [genre])
+  .then(result => result.rows[0])
+  .catch(err => err.message)
+}
+exports.filterBooksByGenre = filterBooksByGenre;
+
+const filterBooksByPrice = function(price) {
+  return pool
+  .query(`
+    SELECT *
+    FROM books
+    WHERE price > $1
+    ORDER BY price;
+  `, [price])
+  .then(result => result.rows[0])
+  .catch(err => err.message)
+}
+exports.filterBooksByPrice = filterBooksByPrice;
+
 const getAllBooks = function(limit) {
   return pool
   .query(`
@@ -24,11 +76,12 @@ const getAllFavorites = function(userId) {
   FROM favorites
   JOIN users ON user_id = users.id
   JOIN books ON book_id = books.id
-  WHERE name = 'Mila';
-`)
+  WHERE id = $1;
+`, [userId])
 .then((result) => result.rows[0])
 .catch((err) => err.message);
 }
+exports.getAllFavorites = getAllFavorites;
 
 const getUserWithEmail = function(email) {
   return pool
@@ -41,6 +94,18 @@ const getUserWithEmail = function(email) {
   .catch((err) => err.message);
 }
 exports.getUserWithEmail = getUserWithEmail;
+
+const getUserWithId = function(id) {
+  return pool
+  .query(`
+    SELECT *
+    FROM users
+    WHERE id = $1
+  `)
+  .then(result => result.rows[0])
+  .catch(err => err.message)
+}
+exports.getUserWithId = getUserWithId;
 
 const addUser =  function(user) {
   const name = user.name;
