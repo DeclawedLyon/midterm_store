@@ -1,5 +1,5 @@
 //load.env
-require('dotenv').config()
+require("dotenv").config();
 
 //server config
 const database = require("./database");
