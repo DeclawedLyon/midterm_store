@@ -1,7 +1,7 @@
 module.exports = function (router, database) {
   router.get("/books", (req, res) => {
     database
-      .getAllProperties(req.query, 20)
+      .getAllBooks(req.query, 20)
       .then((properties) => res.send({ properties }))
       .catch((e) => {
         console.error(e);
@@ -16,8 +16,8 @@ module.exports = function (router, database) {
       return;
     }
     database
-      .getAllReservations(userId)
-      .then((reservations) => res.send({ reservations }))
+      .getAllFavorites(userId)
+      .then((favorties) => res.send({ favorites }))
       .catch((e) => {
         console.error(e);
         res.send(e);
@@ -27,7 +27,7 @@ module.exports = function (router, database) {
   router.post("/books", (req, res) => {
     const userId = req.session.userId;
     database
-      .addProperty({ ...req.body, owner_id: userId })
+      .addBooks({ ...req.body, owner_id: userId })
       .then((property) => {
         res.send(property);
       })
