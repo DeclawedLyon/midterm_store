@@ -46,7 +46,7 @@ app.use(express.static("public"));
 // Note: Feel free to replace the example routes below with your own
 const usersRoutes = require("./routes/users");
 const widgetsRoutes = require("./routes/widgets");
-const book = require("./routes/books");
+const books = require("./routes/books");
 const login = require("./routes/login");
 const register = require("./routes/register");
 const favorites = require("./routes/favorites");
@@ -55,7 +55,7 @@ const favorites = require("./routes/favorites");
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
-app.use("/books", book);
+app.use("/", books);
 app.use("/", login);
 app.use("/", register);
 app.use("/favorites", favorites);

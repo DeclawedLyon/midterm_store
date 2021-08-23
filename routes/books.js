@@ -3,13 +3,13 @@ const router = express.Router();
 
 const database = require("../database");
 
-router.get("/:title", (req, res) => {
+router.get("/books", (req, res) => {
   const title = req.params;
   //test for connecting to databaset and query all data from widgets table
   database
-    .filterBooksByTitle(title)
+    .getAllBooks(10)
     .then((data) => {
-      console.log("book", data);
+      console.log("book11", data);
       res.render("books", { data });
     })
     .catch((err) => {
