@@ -9,6 +9,14 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
+const cookieSession = require("cookie-session");
+
+app.use(
+  cookieSession({
+    name: "session",
+    keys: ["user_id"],
+  })
+);
 
 // PG database client/connection setup
 const { Pool } = require("pg");
@@ -48,8 +56,8 @@ const favorites = require("./routes/favorites");
 app.use("/api/users", usersRoutes(db));
 app.use("/api/widgets", widgetsRoutes(db));
 app.use("/books", book);
-app.use("/login", login);
-app.use("/register", register);
+app.use("/", login);
+app.use("/", register);
 app.use("/favorites", favorites);
 // Note: mount other resources here, using the same pattern above
 

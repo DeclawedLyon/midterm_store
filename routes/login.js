@@ -3,22 +3,23 @@ const router = express.Router();
 
 const database = require("../database");
 
-router.get("/", (req, res) => {
+router.get("/login", (req, res) => {
   res.render("login");
 });
-
 const login = function (email, password) {
-  return database.getPassWordWithEmail(email).then((user) => {
-    console.log("user11111", user);
+  return database.getUserWithEmail(email).then((user) => {
+    if (bcrypt.compareSync(password, user.password)) {
+      return user;
+    }
+    return null;
   });
 };
 exports.login = login;
 
 module.exports = router;
 
-router.post("/login", (req, res) => {
-  const email = req.body.email;
-  const password = req.body.password;
+router.post("/", (req, res) => {
+  const { email, password } = req.body;
   login(email, password)
     .then((user) => {
       if (!user) {
@@ -26,7 +27,7 @@ router.post("/login", (req, res) => {
         return;
       }
       req.session.userId = user.id;
-      res.send({ user: { name: user.name, email: user.email, id: user.id } });
+      res.redirect("/");
     })
     .catch((e) => res.send(e));
 });

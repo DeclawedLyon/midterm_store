@@ -1,16 +1,16 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 const database = require("../database");
 
-router.get("/", (req, res) => {
-  res.render("Register");
+router.get("/register", (req, res) => {
+  res.render("register");
 });
 
-router.post("/", (req, res) => {
+router.post("/register", (req, res) => {
   const user = req.body;
-
-  const password = user.password;
+  user.password = bcrypt.hashSync(user.password, 12);
   database
     .addUser(user)
     .then((user) => {
@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
         return;
       }
       req.session.userId = user.id;
-      res.render("register", { data });
+      res.redirect("/");
     })
     .catch((e) => res.send(e));
 });
