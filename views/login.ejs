@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,44 +30,26 @@
                 <a type="submit" class="nav-link active" aria-current="page" href="#">Home</a>
                 <!-- <button class="" type="submit">Home</button> -->
               </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">📚 Books </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Filter</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">☎️ Contact Us</a>
-              </li>
-              <li class="nav-item">
-
-                <a class="nav-link active" aria-current="page" href="#">	🛒 Cart</a>
-              </li>
-
-              <button class="btn btn-outline-success" type="submit">Log In</button>
-            </ul>
-
           </div>
         </div>
       </nav>
-
     </header>
-   <h2 class="head-title">Our Latest Adventures</h2>
-
-    <div class="back-block"></div>
-    <div class="container">
-      <div class="book">
-        <div class="book-one"></div>
-        <div class="book-name">Book name</div>
-        <div class="book-price">C$15</div>
+    <main style="margin: 1em;">
+      <h3>Login</h3>
+      <form action="/login" method="POST">
+      <div>
+        <label for="email"> Email </label>
+        <input type="email" name="email" placeholder="Enter email">
       </div>
-
-      <div class="book">
-        <div class="book-two"></div>
-        <div class="book-name">Book name</div>
-        <div class="book-price">C$15</div>
+      <div>
+        <label for="password"> Password </label>
+        <input type="password"  name="password" placeholder="Password" >
+        <button type="submit"> Login </button>
       </div>
-    </div>
+    </form>
+
+    </main>
+
 
     <div class="footer-basic">
       <footer>
