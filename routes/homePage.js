@@ -3,10 +3,9 @@ const router = express.Router();
 
 const database = require("../database");
 
-router.get("/", (req, res) => {
-  //test for connecting to databaset and query all data from widgets table
+router.get("/books", (req, res) => {
   database
-    .getWidgets()
+    .getAllBooks(10)
     .then((data) => {
       res.render("index", { data });
     })

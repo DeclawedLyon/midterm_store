@@ -50,6 +50,7 @@ const books = require("./routes/books");
 const login = require("./routes/login");
 const register = require("./routes/register");
 const favorites = require("./routes/favorites");
+const database = require("./database");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -65,7 +66,14 @@ app.use("/favorites", favorites);
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
 app.get("/", (req, res) => {
-  res.render("index");
+  database
+    .getAllBooks(10)
+    .then((data) => {
+      res.render("index", { data });
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
 });
 
 app.listen(PORT, () => {

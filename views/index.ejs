@@ -12,6 +12,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script>
+      $( "#filter" ).click(function() {
+        $( "#sort" ).slideDown();
+      });
+      </script>
 
   </head>
   <body>
@@ -21,13 +26,17 @@
     <div class="back-block"></div>
     <div class="container">
       <div class="book">
-        <div class="book-one"></div>
+        <div class="book-one">
+          <img class="book-cover2" src=<%= data[0].bookcover %> >
+        </div>
         <div class="book-name">Book name</div>
         <div class="book-price">C$15</div>
       </div>
 
       <div class="book">
-        <div class="book-two"></div>
+        <div class="book-two">
+          <img class="book-cover2" src=<%= data[1].bookcover %> >
+        </div>
         <div class="book-name">Book name</div>
         <div class="book-price">C$15</div>
       </div>
