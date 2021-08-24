@@ -7,28 +7,35 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
   </head>
   <%- include('partials/header') %>
-  <body>
-    <main style="margin: 1em;">
-      <h3>Login</h3>
-      <form action="/login" method="POST">
-      <div>
-        <label for="email"> Email </label>
-        <input type="email" name="email" placeholder="Enter email">
-      </div>
-      <div>
-        <label for="password"> Password </label>
-        <input type="password"  name="password" placeholder="Password" >
-        <button type="submit"> Login </button>
-      </div>
-    </form>
+  <body class="login-page">
+    <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=841&q=80" alt="">
+    <main>
+      <section class="login">
+        <h3>Log in to continue</h3>
+        <form action="/login" method="POST">
+        <div class="user-data">
+          <label for="email"> Your Email </label> <br>
+          <input type="email" name="email" placeholder="Enter email">
+        </div>
+        <div class="user-data">
+          <label for="password"> Your Password </label> <br>
+          <input type="password"  name="password" placeholder="Password" >
+          <button type="submit" class="btn btn-outline-secondary"> Login </button>
+        </div>
+      </form>
+      </section>
+
+
 
     </main>
 

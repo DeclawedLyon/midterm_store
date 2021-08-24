@@ -69,6 +69,7 @@ app.get("/", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
+      console.log('data', data);
       res.render("index", { data });
     })
     .catch((err) => {
