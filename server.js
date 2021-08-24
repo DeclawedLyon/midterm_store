@@ -43,6 +43,7 @@ const login = require("./routes/login");
 const register = require("./routes/register");
 const favorites = require("./routes/favorites");
 const database = require("./database");
+const search = require("./routes/search");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -51,6 +52,7 @@ app.use("/api/widgets", widgetsRoutes(db));
 app.use("/", books);
 app.use("/", login);
 app.use("/", register);
+app.use("/", search);
 app.use("/favorites", favorites);
 // Note: mount other resources here, using the same pattern above
 
@@ -61,7 +63,7 @@ app.get("/", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
-      console.log('data', data);
+      console.log("data", data);
       res.render("index", { data });
     })
     .catch((err) => {

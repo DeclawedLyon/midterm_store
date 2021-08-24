@@ -51,18 +51,18 @@ const filterBooksByGenre = function (genre) {
 };
 exports.filterBooksByGenre = filterBooksByGenre;
 
-const filterBooksByPrice = function (price) {
+const filterBooksByPrice = function (min, max) {
   return pool
     .query(
       `
     SELECT *
     FROM books
-    WHERE price > $1
+    WHERE price > $1 and price <$2
     ORDER BY price;
   `,
-      [price]
+      [min, max]
     )
-    .then((result) => result.rows[0])
+    .then((result) => result.rows)
     .catch((err) => err.message);
 };
 exports.filterBooksByPrice = filterBooksByPrice;

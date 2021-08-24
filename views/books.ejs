@@ -17,76 +17,25 @@
     <script type="text/javascript" src="/scripts/app.js"></script>
 
   </head>
-  <header>
-    <h1 class="logo">Book world</h1>
-     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-       <div class="container-fluid">
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-           <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-             <li class="nav-item">
-               <a type="submit" class="nav-link active" aria-current="page" href="/">Home</a>
-               <!-- <button class="" type="submit">Home</button> -->
-             </li>
-             <li class="nav-item">
-               <a class="nav-link active" aria-current="page" href="/books">📚 Books </a>
-             </li>
-             <li class="nav-item">
-              <table>
-                <tr>
-                  <th><button id="flip">Filter</button></th>
-                </tr>
-                <tr  >
-                  <td id="panel">ByPrice</td>
-                </tr>
-              </table>
-             </li>
-             <li class="nav-item">
-
-               <a class="nav-link active" aria-current="page" href="#">	🛒 Cart</a>
-             </li>
-             <a class="btn btn-outline-success" type="button" href="/register">Register</a>
-             <a class="btn btn-outline-success" type="button" href="/login">Log In</a>
-           </ul>
-
-         </div>
-       </div>
-     </nav>
-   </header>
+  <%- include('partials/header') %>
   <body>
-    <div class="book-list">
-    <% for(let book of data) { %>
-<<<<<<< HEAD
-    <div class="book-one">
-    <p> price: $<%= book.price %> </p>
-    <p> Year: $<%= book.year %></p>
-    <p> Auther: $<%= book.author %></p>
-    <img class="book-cover2" src=<%= book.bookcover %> >
-  </div>
-  <%}%>
-=======
-        <div class="book-one list">
-          <img src= <%= book.bookcover %> >
-          <div class="book-name"><%= book.title %></div>
-          <div class="book-price"> price: $<%= book.price %> </div>
-      </div>
-
-      <%}%>
+    <main>
+      <div class="book-list">
+      <% for(let book of data) { %>
+      <div class="book-one">
+      <p> price: $<%= book.price %> </p>
+      <p> Year: <%= book.year %></p>
+      <p> Auther: <%= book.author %></p>
+      <img class="book-cover2" src=<%= book.bookcover %> >
     </div>
->>>>>>> 508556ef1c039bfc2119f0ccc11a1ac56eedf9b0
+    <%}%>
+
+    </main>
 
     <div class="footer-basic">
       <%- include('partials/footer') %>
   </div>
-  <script>
-   $(document).ready(function(){
-  $("#flip").click(function(){
-    $("#panel").slideToggle();
-  });
-});
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoWe/6oMVemdAVTMs2xqW4mwXrXsW0L84Iytr2wi5v2QjrP/xp" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
   </body>

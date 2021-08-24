@@ -7,7 +7,7 @@ router.get("/books", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
-      console.log("book11", data);
+      console.log("book1111111", data);
       res.render("books", { data });
     })
     .catch((err) => {
