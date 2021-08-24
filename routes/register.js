@@ -13,7 +13,7 @@ router.post("/register", (req, res) => {
     .addUser(user)
     .then((user) => {
       res.cookie("user_id", user.id);
-      res.redirect("/");
+      res.redirect("/user");
     })
     .catch((e) => res.send(e));
 });

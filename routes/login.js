@@ -27,7 +27,7 @@ router.post("/login", (req, res) => {
       }
       console.log("req.userId");
       req.userId = user.id;
-      res.redirect("/");
+      res.redirect("/user");
     })
     .catch((e) => res.send(e));
 });
