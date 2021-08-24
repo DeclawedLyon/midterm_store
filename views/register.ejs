@@ -7,32 +7,39 @@
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Satisfy&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
   </head>
   <%- include('partials/header') %>
-    </header>
-    <main style="margin: 1em;">
-      <h3>Creat Account</h3>
-      <form action="/register" method="POST">
-        <div>
-          <label for="name"> Name </label>
-          <input type="name" name="name" placeholder="Enter name">
-        </div>
-        <div>
-          <label for="email"> Email </label>
-          <input type="email" name="email" placeholder="Enter email">
-        </div>
-        <div>
-          <label for="password"> Password </label>
-          <input type="password"  name="password" placeholder="Password" >
-          <button type="submit"> Register </button>
-        </div>
-      </form>
+    <body class="login-page">
+      <img src="https://images.pexels.com/photos/46274/pexels-photo-46274.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="">
+    <main class="lodin-page">
+      <section class="register">
+        <h3>Create Personal Account</h3>
+        <form action="/register" method="POST">
+          <div class="user-data">
+            <label for="name"> Name </label> <br>
+            <input type="name" name="name" placeholder="Enter name">
+          </div>
+          <div class="user-data">
+            <label for="email"> Email </label> <br>
+            <input type="email" name="email" placeholder="Enter email">
+          </div>
+          <div class="user-data">
+            <label for="password"> Password </label> <br>
+            <input type="password"  name="password" placeholder="Password" >
+            <button type="submit" class="btn btn-outline-secondary"> Register </button>
+          </div>
+        </form>
+
+      </section>
+
 
     </main>
 

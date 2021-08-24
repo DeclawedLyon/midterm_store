@@ -5,10 +5,24 @@ body {
 
   h1 {
     color: #244751;
+    font-family: 'Satisfy', cursive;
+    font-family: 'Courgette', cursive;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4em;
+    letter-spacing: 3px;
   }
 }
+// Header
+
+.container-fluid {
+    border-top: solid brown 0.5px;
+    padding-top: 15px;
+    border-bottom: solid brown 0.5px;
+    padding-bottom: 15px;
+}
+
 .head-title {
-  margin: 40px 0 40px 0;
+  margin: 60px 0 60px 0;
   text-align: center;
 }
 .logo {
@@ -16,11 +30,18 @@ body {
   text-align: center;
   height: 3em;
 }
+.navbar {
+  font-size: 1.3rem;
+  margin-left: 10%;
+  width: 80%;
 
+}
 .navbar-nav {
   width: 100%;
   justify-content: space-around;
 }
+
+//Main section
 .main-section {
   width: 80%;
 }
@@ -31,9 +52,9 @@ body {
   position: absolute;
   text-align: center;
   width: 80%;
-  background-color: #b3e0d8;
+  background-color: #c6a78f;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-dark.png");
-  height: 500px;
+  height: 650px;
 }
 .container {
   position: relative;
@@ -44,35 +65,71 @@ body {
 }
 .book {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   position: relative;
   width: 40%;
-  height: 600px;
+  height: 100%px;
 }
-.book-one {
-  width: 90%;
-  height: 100%;
-  margin: 40px;
-  background-color: rgb(109, 114, 116);
+.container :hover {
+  background-color: #ecdab9;
 }
-
-.book-two {
-  width: 90%;
-  height: 100%;
-  margin: 40px;
-  background-color: rgb(109, 114, 116);
+.book-one img {
+  width: 100%;
+  max-width: 450px;
+  height: 550px;
+  padding: 20px 20px;
+  //background-color: rgb(109, 114, 116);
 }
 
-.book-name,
+.book.list {
+  height: 650px;
+  margin: 40px 40px;
+}
+.list {
+  width: 415px;
+  display: flex;
+  flex-direction: column;
+}
+.list:hover {
+  background-color: #ecdab9;
+}
+.book-list {
+  margin: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100%px;
+}
+.book-two img {
+  width: 100%;
+  max-width: 450px;
+  height: 550px;
+  padding: 20px 20px;
+  //sbackground-color: rgb(109, 114, 116);
+}
+.filter-box {
+  display: flex;
+  flex-direction: column;
+}
+.book-name {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 1.5em;
+}
 .book-price {
   text-align: center;
+  padding: 0 0 20px 0;
+  font-size: 1em;
 }
-
 .footer-basic {
-  margin-top: 200px;
-  padding: 40px 0;
-  background-color: #18b997;
+  height: 200px;
+  margin-top: 300px;
+  padding: 60px 0;
+  background-color: #a0b3a8;
   color: #4b4c4d;
 }
 
@@ -129,21 +186,64 @@ body {
   color: #ffff;
   margin-bottom: 0;
 }
-.book-cover2 {
-  max-width: 350px;
-  max-height: 350px;
+
+//Login page
+.login-page {
+  position: relative;
 }
-.filter-box {
-  flex: display;
-  flex-direction: column;
+.login-page img {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.2;
+  z-index: -1;
 }
 
+.login {
+  position: relative;
+  z-index: 2;
+  width: 400px;
+  height: 400px;
+  background-color: #f9f6f3;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  box-shadow: 10px 10px #e6dede;
+}
+.login h3, .register h3 {
+  padding: 40px;
+}
+.user-data {
+  padding-bottom: 20px;
+}
+.user-data label {
+  margin-bottom: 8px;
+}
+.login button, .register button {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  padding: 7px 30px;
+}
+//Register page
+.register {
+  width: 500px;
+  height: 500px;
+  background-color: #f9f6f3;
+  margin: auto;
+  margin-top: 5%;
+  text-align: center;
+  box-shadow: 10px 10px #e6dede;
+}
 @media only screen and (max-width: 992px) {
   .container {
+    margin-top: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     width: 100%;
     height: 600px;
   }
