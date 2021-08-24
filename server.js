@@ -9,14 +9,6 @@ const bodyParser = require("body-parser");
 const sass = require("node-sass-middleware");
 const app = express();
 const morgan = require("morgan");
-const cookieSession = require("cookie-session");
-
-app.use(
-  cookieSession({
-    name: "session",
-    keys: ["user_id"],
-  })
-);
 
 // PG database client/connection setup
 const { Pool } = require("pg");
