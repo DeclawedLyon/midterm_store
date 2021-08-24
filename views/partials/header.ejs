@@ -15,23 +15,43 @@
              <a class="nav-link active" aria-current="page" href="/books"> Books </a>
            </li>
            <li class="nav-item">
-            <div id="search-form">
-              <form method="GET" action="/search">
-                <input type="min" name="min" placeholder="minprice">
-                <input type="max" name="max" placeholder="maxprice">
-                <button type="search" value="Search" class="btn btn-outline-danger">Search</button>
-              </form>
-              </div>
+            <span class="filter-books nav-link active" type="button">Filter</span>
            </li>
            <li class="nav-item">
 
              <a class="nav-link active" aria-current="page" href="/cart">	🛒 Cart</a>
            </li>
-           <a class="nav-link active" type="button" href="/register">Register</a>
-           <a class="nav-link active" type="button" href="/login">Log In</a>
+
+           <% if(user){ %>
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/books"> MyBooks </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/books"> MyFavorites </a>
+              </li>
+              <form class = "form-inline" action = "/logout" method= "POST">
+                <button type="submit" class="btn btn-danger">Logout</button>
+              </form>
+              <% } else{ %>
+                li class="nav-item">
+                  <a class="nav-link active" type="button" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" type="button" href="/login">Log In</a>
+                </li>
+              <% } %>
+
+
          </ul>
 
        </div>
      </div>
    </nav>
+   <div id="search-form">
+    <form method="GET" action="/search">
+      <input type="min" name="min" placeholder="minprice">
+      <input type="max" name="max" placeholder="maxprice">
+      <button type="search" value="Search" class="btn btn-outline-danger">Search</button>
+    </form>
+    </div>
  </header>
