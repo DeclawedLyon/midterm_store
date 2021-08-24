@@ -4,6 +4,7 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/login", (req, res) => {
+  req.session.user_id = req.params.id;
   res.render("login");
 });
 const login = function (email, password) {
@@ -25,9 +26,9 @@ router.post("/login", (req, res) => {
         res.send({ error: "Wrong password or Wrong email!" });
         return;
       }
-      console.log("req.userId");
-      req.userId = user.id;
-      res.redirect("/user");
+
+      req.session.userId = user.id;
+      res.redirect("/");
     })
     .catch((e) => res.send(e));
 });

@@ -16,30 +16,31 @@
            </li>
            <li class="nav-item">
             <span class="filter-books nav-link active" type="button">Filter</span>
-            <!-- <div id="search-form">
-              <form method="GET" action="/search">
-                <input type="min" name="min" placeholder="minprice">
-                <input type="max" name="max" placeholder="maxprice">
-                <button type="search" value="Search" class="btn btn-outline-danger">Search</button>
-              </form>
-              </div> -->
            </li>
            <li class="nav-item">
-
              <a class="nav-link active" aria-current="page" href="#">	 Cart</a>
            </li>
+
            <% if(user){ %>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/user"> MyBooks </a>
-             </li>
-             <button type="submit"> Logout </button>
-           </form>
+                <a class="nav-link active" aria-current="page" href="/books"> MyBooks </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/books"> MyFavorites </a>
+              </li>
+              <form class = "form-inline" action = "/logout" method= "POST">
+                <button type="submit" class="btn btn-danger">Logout</button>
+              </form>
               <% } else{ %>
-                <div class="navbar-nav"></div>
-                <a class="nav-link active" type="button" href="/register">Register</a>
-                <a class="nav-link active" type="button" href="/login">Log In</a>
-              </div>
+                li class="nav-item">
+                  <a class="nav-link active" type="button" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" type="button" href="/login">Log In</a>
+                </li>
               <% } %>
+
+
          </ul>
 
        </div>
