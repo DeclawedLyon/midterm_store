@@ -117,13 +117,18 @@ body {
 }
 .book-name {
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 1.5em;
 }
 .book-price {
   text-align: center;
   padding: 0 0 20px 0;
   font-size: 1em;
+}
+.book-author, .book-year {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 0;
 }
 .footer-basic {
   height: 200px;

@@ -22,11 +22,12 @@
     <main>
       <div class="book-list">
       <% for(let book of data) { %>
-      <div class="book-one">
-      <p> price: $<%= book.price %> </p>
-      <p> Year: <%= book.year %></p>
-      <p> Auther: <%= book.author %></p>
-      <img class="book-cover2" src=<%= book.bookcover %> >
+      <div class="book-one list">
+        <img class="book-cover2" src=<%= book.bookcover %> >
+        <div class="book-name"><%= book.title %></div>
+        <p class="book-author"> Author: <%= book.author %></p>
+        <p class="book-year"> Year: <%= book.year %></p>
+        <div class="book-price"> Price: $<%= book.price %> </div>
     </div>
     <%}%>
 
