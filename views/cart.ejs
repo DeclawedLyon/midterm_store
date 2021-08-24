@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout</title>
+
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script type="text/javascript" src="/scripts/app.js"></script>
+
+</head>
+<%- include('partials/header') %>
+<body>
+  <div class="order-container">
+    <div>
+      <h2>Shipping Information</h2>
+      <div>
+        <label>First Name</label>
+        <input id="first-name" type="text">
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input id="last Name" type="text">
+      </div>
+      <div>
+        <label>Shipping Address</label>
+        <input id="shipping-address" type="text" name="shipping address">
+      </div>
+      <div>
+        <label>City</label>
+        <input id="city" type="text">
+      </div>
+      <div>
+        <label>Province</label>
+        <input id="province" type="text">
+      </div>
+      <div>
+        <label>Postal Code</label>
+      </div>
+    </div>
+
+    <div>
+      <h2>Order Summary</h2>
+      <div>
+        <div id="item-container">
+
+        </div>
+
+        <div>
+          <div>
+            <label>Item Subtotal:</label>
+            <label>$-Subtotal</label>
+          </div>
+          <div>
+            <label>Shipping:</label>
+            <label>$-Shipping</label>
+          </div>
+          <div>
+            <label>Taxes:</label>
+            <label>$-taxes</label>
+          </div>
+        </div>
+        <div>
+          <label>Total:</label>
+          <label>$-total</label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div>
+    <h2>Contact Information</h2>
+    <div>
+      <label>Email Address</label>
+      <input id="email-aaddress" type="text">
+    </div>
+    <div>
+      <label>Phone Number</label>
+      <input id="phone-number" type="text"
+    </div>
+  </div>
+
+  <button id="continue-to-payment" type="submit">Continue To Payment</button>
+
+
+  <div id="cart-container">
+
+  </div>
+</body>
+<%- include('partials/footer') %>
+</html>

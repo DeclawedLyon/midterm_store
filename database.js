@@ -164,14 +164,23 @@ exports.addUser = addUser;
 ///test
 const getWidgets = function () {
   return pool
-    .query(
-      `
+    .query(`
     SELECT *
     FROM widgets
-
-  `
-    )
+  `)
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
 exports.getWidgets = getWidgets;
+
+const getAllItemsInCart = function (user_id) {
+  return pool
+  .query(`
+  SELECT carts.id, users.name AS user, books.title AS title
+  FROM carts
+  JOIN users ON user_id = users.id
+  JOIN books ON book_id = books.id
+  WHERE users.id = $
+  `, [user_id])
+}
+exports.getAllItemsInCart = getAllItemsInCart;

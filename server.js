@@ -44,7 +44,7 @@ const register = require("./routes/register");
 const favorites = require("./routes/favorites");
 const database = require("./database");
 const search = require("./routes/search");
-
+const cart = require("./routes/cart");
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 app.use("/api/users", usersRoutes(db));
@@ -54,6 +54,7 @@ app.use("/", login);
 app.use("/", register);
 app.use("/", search);
 app.use("/favorites", favorites);
+app.use("/", cart)
 // Note: mount other resources here, using the same pattern above
 
 // Home page

@@ -6,8 +6,6 @@ VALUES ('Kira','bbbbbb@gmail.com', '22222');
 INSERT INTO users (name,email,password)
 VALUES ('Mila','cccccc@outlook.com', '33333');
 INSERT INTO users (name,email,password)
-VALUES ('Declan','dddddd@ball.com', '55555');
-INSERT INTO users (name,email,password)
 VALUES ('Andy','eeeeee@live.com', '44444');
 INSERT INTO users (name,email,password)
 VALUES ('Tom','ffffff@hot.com', '66666');
@@ -40,14 +38,46 @@ VALUES (3,4);
 INSERT INTO favorites (user_id,book_id)
 VALUES (4,5);
 INSERT INTO favorites (user_id,book_id)
-VALUES (5,6);
+VALUES (5,5);
 INSERT INTO favorites (user_id,book_id)
 VALUES (3,7);
 INSERT INTO favorites (user_id,book_id)
 VALUES (3,1);
 
+-- sells table seeds here
+
 INSERT INTO sells (book_id,sold_date,total,user_id)
 VALUES(8,'2020-08-10',77,4);
 
+-- carts table seeds here
+
+INSERT INTO carts (user_id,book_id)
+VALUES (1,2);
+INSERT INTO carts (user_id,book_id)
+VALUES (2,3);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (4,5);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,1);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (4,1);
+INSERT INTO carts (user_id,book_id)
+VALUES (2,2);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (1,5);
+INSERT INTO carts (user_id,book_id)
+VALUES (1,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,7);
 
 

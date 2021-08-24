@@ -6,8 +6,11 @@ const database = require("../database");
 router.get("/login", (req, res) => {
   res.render("login");
 });
+
 const login = function (email, password) {
-  return database.getUserWithEmail(email).then((user) => {
+  return database
+  .getUserWithEmail(email)
+  .then((user) => {
     if (password === user.password) {
       return user;
     }
@@ -16,7 +19,6 @@ const login = function (email, password) {
 };
 exports.login = login;
 
-module.exports = router;
 
 router.post("/login", (req, res) => {
   login(req.body.email, req.body.password)
@@ -31,3 +33,5 @@ router.post("/login", (req, res) => {
     })
     .catch((e) => res.send(e));
 });
+
+module.exports = router;
