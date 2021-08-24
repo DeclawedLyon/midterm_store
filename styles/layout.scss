@@ -13,7 +13,6 @@ body {
   }
 }
 // Header
-
 .container-fluid {
     border-top: solid brown 0.5px;
     padding-top: 15px;
@@ -40,6 +39,13 @@ body {
   width: 100%;
   justify-content: space-around;
 }
+//Search-form
+#search-form {
+  display: none;
+  margin: 30px auto;
+  text-align: center;
+}
+
 
 //Main section
 .main-section {
@@ -130,6 +136,8 @@ body {
   font-size: 1em;
   margin-bottom: 0;
 }
+
+//FOOTER
 .footer-basic {
   height: 200px;
   margin-top: 300px;
