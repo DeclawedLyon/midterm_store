@@ -1,22 +1,20 @@
 const express = require("express");
 const router = express.Router();
-
 const database = require("../database");
 
-router.get("/books", (req, res) => {
+router.get("/mybooks", (req, res) => {
+  let userid = req.session.user_id;
+
   database
-    .getAllBooks(10)
+    .filterBooksByUser(userid)
     .then((data) => {
-      req.session.user_id = user.id;
-      res.render("index", { data });
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.render("mybooks", templeteVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
-});
-router.post("/logout", (req, res) => {
-  req.session.userId = null;
-  res.send({});
 });
 
 module.exports = router;

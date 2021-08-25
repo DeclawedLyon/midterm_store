@@ -19,6 +19,22 @@ const filterBooksByTitle = function (title) {
 };
 exports.filterBooksByTitle = filterBooksByTitle;
 
+const filterBooksByUser = function (id) {
+  return pool
+    .query(
+      `
+    SELECT *
+    FROM books
+    WHERE  owner_id = $1
+    ORDER BY id
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.filterBooksByUser = filterBooksByUser;
+
 const filterBooksByAuthor = function (author) {
   return pool
     .query(
@@ -86,15 +102,15 @@ const getAllFavorites = function (userId) {
   return pool
     .query(
       `
-  SELECT favorites.id, users.name, books.title
+  SELECT books.bookcover, books.price, books.author
   FROM favorites
   JOIN users ON user_id = users.id
   JOIN books ON book_id = books.id
-  WHERE id = $1;
+  WHERE user_id = $1;
 `,
       [userId]
     )
-    .then((result) => result.rows[0])
+    .then((result) => result.rows)
     .catch((err) => err.message);
 };
 exports.getAllFavorites = getAllFavorites;
