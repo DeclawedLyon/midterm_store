@@ -6,19 +6,17 @@ const database = require("../database");
 
 router.get("/cart", (req, res) => {
   // const user_id = req.body.user;
-  const user_id = req.session.user;
+  const user_id = req.session.user_id;
+  console.log(user_id);
   database
-    .getUserWithId()
+    .getUserWithId(user_id)
     .then((data) => {
       console.log(data);
-      res.render('cart');
+      res.render('cart', [data]);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
-
-  console.log('anything')
-  // res.render("cart", templateVars);
 });
 
 // router.post("/cart", (req, res) => {
