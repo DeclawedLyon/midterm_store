@@ -177,6 +177,27 @@ const addUser = function (user) {
 };
 exports.addUser = addUser;
 
+const addBook = function (book) {
+  const owner_id = book.owner_id;
+  const price = book.price;
+  const author = book.author;
+  const title = book.title;
+  const genre = book.genre;
+  const year = book.year;
+  const bookcover = book.bookcover;
+
+  return pool
+    .query(
+      `
+      INSERT INTO books (owner_id, price, author, title, genre, year,bookcover,sold) VALUES ($1, $2, $3, $4, $5, $6,$7,false) RETURNING *
+      `,
+      [owner_id, price, author, title, genre, year, bookcover]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.addBook = addBook;
+
 ///test
 const getWidgets = function () {
   return pool

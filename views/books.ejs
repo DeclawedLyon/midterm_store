@@ -12,7 +12,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Satisfy&display=swap" rel="stylesheet">
-
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
@@ -28,7 +31,9 @@
         <div class="book-name"><%= book.title %></div>
         <p class="book-author"> Author: <%= book.author %></p>
         <p class="book-year"> Year: <%= book.year %></p>
-        <div class="book-price"> Price: $<%= book.price %> </div>
+        <p class="book-price"> Price: $<%= book.price %> </p>
+        <p><button class="like" id="likes">like</button> </p>
+
     </div>
     <%}%>
 
