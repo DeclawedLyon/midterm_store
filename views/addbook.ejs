@@ -19,31 +19,36 @@
   <%- include('partials/header') %>
   <body>
     <main>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Books</th>
-            <th scope="col">author</th>
-            <th scope="col">Price</th>
-            <th scope="col">Sold</th>
-            <th scope="col">Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(let book of data) { %>
-            <tr>
-              <td><div class="book-one list">
-                <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
-              <td><p class="book-author"> Author: <%= book.author %></p></td>
-              <td><p class="book-year"> Year: <%= book.year %></p></td>
-              <td><form method="GET" action="/sold"><button type="submit" class="btn btn-primary">sold</button></form></td>
-              <td><form method="POST" action="/delete"><button type="submit" class="btn btn-danger">Delete</button></form></td>
-            </tr>
-          <% } %>
-        </tbody>
-      </table>
+      <h1 style="padding-top: 130px; display: flex; justify-content: center;">Add a Book</h1>
+    <div class="addbook-page">
+    <div id="addbook-form">
+      <form method="POST" action="/addbook">
+        <label>Title:</label>
+        <input type="text" name="title" id="nav-input" style="width: 350px;"></input>
+        <p style="line-height: 0.1em;">&nbsp;</p>
 
+        <label>Year:</label>
+        <input type="text" name="year" id="nav-input" style="width: 350px;"></input>
+        <p style="line-height: 0.1em;">&nbsp;</p>
 
+        <label>Genre:</label>
+        <input type="text" name="genre" id="nav-input" style="width: 350px;"></input>
+        <p style="line-height: 0.1em;">&nbsp;</p>
+
+        <label>Author:</label>
+        <input type="text" name="author" id="nav-input" style="width: 350px;"></input>
+        <p style="line-height: 0.1em;">&nbsp;</p>
+
+        <label>Price:</label>
+        <input type="number" name="price" id="nav-input" style="width: 350px"></input>
+        <p style="line-height: 0.1em;">&nbsp;</p>
+
+        <label>Image URL:</label>
+        <input type="text" name="bookcover" id="nav-input"></input>
+        <button type="submit" value="submit" id="post-ad-submit">Submit</button>
+      </form>
+    </div>
+    </div>
     </main>
 
     <div class="footer-basic">
