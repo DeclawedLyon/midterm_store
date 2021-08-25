@@ -7,7 +7,7 @@ router.get("/books", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       res.render("index", { data });
     })
     .catch((err) => {

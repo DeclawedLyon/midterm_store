@@ -4,9 +4,10 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/login", (req, res) => {
-  console.log("help");
-  req.session.user_id = req.params.id;
-  res.render("login");
+  // req.session.user_id = req.params.id;
+  const templeteVars = {};
+  templeteVars.user = req.session.user_id ? req.session.user_id : null;
+  res.render("login", templeteVars);
 });
 
 const login = function (email, password) {
@@ -21,7 +22,6 @@ const login = function (email, password) {
 };
 exports.login = login;
 
-
 router.post("/login", (req, res) => {
   login(req.body.email, req.body.password)
     .then((user) => {
@@ -30,7 +30,7 @@ router.post("/login", (req, res) => {
         return;
       }
 
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       res.redirect("/");
     })
     .catch((e) => res.send(e));
