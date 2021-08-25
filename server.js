@@ -84,6 +84,11 @@ app.get("/", (req, res) => {
     });
 });
 
+app.post("/logout", (req, res) => {
+  req.session.user_id = null;
+  res.redirect("/");
+});
+
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
