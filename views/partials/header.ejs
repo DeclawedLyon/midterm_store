@@ -22,7 +22,7 @@
              <a class="nav-link active" aria-current="page" href="/cart">	🛒 Cart</a>
            </li>
 
-           <% if(user){ %>
+
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/books"> MyBooks </a>
               </li>
@@ -32,14 +32,14 @@
               <form class = "form-inline" action = "/logout" method= "POST">
                 <button type="submit" class="btn btn-danger">Logout</button>
               </form>
-              <% } else{ %>
-                li class="nav-item">
+
+                <li class="nav-item">
                   <a class="nav-link active" type="button" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" type="button" href="/login">Log In</a>
                 </li>
-              <% } %>
+
 
 
          </ul>

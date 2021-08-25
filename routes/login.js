@@ -4,6 +4,7 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/login", (req, res) => {
+  console.log("help");
   req.session.user_id = req.params.id;
   res.render("login");
 });
