@@ -25,7 +25,7 @@ const filterBooksByUser = function (id) {
       `
     SELECT *
     FROM books
-    WHERE  owner_id = $1
+    WHERE  user_id = $1
     ORDER BY id
   `,
       [id]
@@ -100,16 +100,13 @@ exports.getAllBooks = getAllBooks;
 
 const getAllFavorites = function (userId) {
   return pool
-    .query(
-      `
-  SELECT books.bookcover, books.price, books.author
-  FROM favorites
-  JOIN users ON user_id = users.id
-  JOIN books ON book_id = books.id
-  WHERE user_id = $1;
-`,
-      [userId]
-    )
+    .query(`
+      SELECT books.bookcover, books.price, books.author
+      FROM favorites
+      JOIN users ON user_id = users.id
+      JOIN books ON book_id = books.id
+      WHERE user_id = $1;
+    `,[userId])
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
@@ -191,7 +188,7 @@ exports.getWidgets = getWidgets;
 
 const getAllItemsInCart = function (user_id) {
   return pool
-  .query(`
+    .query(`
   SELECT carts.id, users.name AS user, books.title AS title
   FROM carts
   JOIN users ON user_id = users.id
@@ -201,9 +198,9 @@ const getAllItemsInCart = function (user_id) {
 }
 exports.getAllItemsInCart = getAllItemsInCart;
 
-const getDetailsOfItemsInCart = function(user_id) {
+const getDetailsOfItemsInCart = function (user_id) {
   return pool
-  .query(`
+    .query(`
   SELECT carts.id, books.title, price
   FROM carts
   JOIN users ON user_id = users.id
@@ -216,7 +213,7 @@ exports.getDetailsOfItemsInCart = getDetailsOfItemsInCart;
 
 const getSumOfAllItemsInCart = function (user_id) {
   return pool
-  .query(`
+    .query(`
   SELECT users.name, SUM(books.price)
   FROM carts
   JOIN users ON user_id = users.id

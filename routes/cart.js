@@ -1,37 +1,32 @@
 const express = require("express");
 const router = express.Router();
-
 const database = require("../database");
 
 
 router.get("/cart", (req, res) => {
-  // const user_id = req.body.user;
-  const user_id = req.session.user_id;
+  const userid = req.session.user_id;
   database
-    .getUserWithId(user_id)
+    .filterBooksByUser(userid)
     .then((data) => {
-      const templeteVars = { data };
-      templeteVars.user = req.session.user_id ? req.session.user_id : null;
-      res.render("cart", templeteVars);
+      const finalPrice = data.reduce((total, currentItem) => {
+        return total.price + currentItem.price;
+      })
+      const taxes = finalPrice * 0.15;
+      const shipping = 5;
+      const totalPrice = finalPrice + taxes + shipping;
+      const templateVars = { data, finalPrice, taxes, shipping, totalPrice };
+      templateVars.user = req.session.user_id ? req.session.user_id : null;
+      res.render("cart", templateVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })
     })
 });
 
-// router.post("/cart", (req, res) => {
-//   const user_id = req.body.user_id;
-//   console.log(user_id);
-//   database
-//     .getAllItemsInCart(user_id)
-//     .then((data) => {
-//       console.log("book11", data);
-//       res.render("cart", { data });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
+router.post("/cart", (req, res) => {
+  const userid = req.session.userid;
+  res.json(userid);
+})
 
 module.exports = router;
 
