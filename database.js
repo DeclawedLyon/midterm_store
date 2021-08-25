@@ -177,7 +177,45 @@ const addUser = function (user) {
 };
 exports.addUser = addUser;
 
+const addBook = function (book) {
+  const owner_id = book.owner_id;
+  const price = book.price;
+  const author = book.author;
+  const title = book.title;
+  const genre = book.genre;
+  const year = book.year;
+  const bookcover = book.bookcover;
 
+  return pool
+    .query(
+      `
+      INSERT INTO books (owner_id, price, author, title, genre, year,bookcover,sold) VALUES ($1, $2, $3, $4, $5, $6,$7,false) RETURNING *
+      `,
+      [owner_id, price, author, title, genre, year, bookcover]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.addBook = addBook;
+
+const addMessage = function (message) {
+  const sender_id = message.sender_id;
+  const recipient_id = message.recipient_id;
+  const newMessage = message.newMessage;
+
+  return pool
+    .query(
+      `
+      INSERT INTO messages (sender_id, recipient_id, message)
+      VALUES ($1, $2, $3)
+      RETURNING *
+      `,
+      [sender_id, recipient_id, newMessage]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.addMessage = addMessage;
 
 ///test
 const getWidgets = function () {
