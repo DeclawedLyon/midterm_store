@@ -7,8 +7,9 @@ router.get("/books", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
-      console.log("book1111111", data);
-      res.render("books", { data });
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.render("books", templeteVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

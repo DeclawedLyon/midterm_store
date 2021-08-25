@@ -73,8 +73,13 @@ app.get("/", (req, res) => {
   database
     .getAllBooks(10)
     .then((data) => {
-      console.log("data", data);
-      res.render("index", { data });
+      const templeteVars = {
+        data,
+      };
+
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      // console.log("data", data);
+      res.render("index", templeteVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

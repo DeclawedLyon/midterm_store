@@ -4,7 +4,10 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/register", (req, res) => {
-  res.render("register");
+  const templeteVars = {
+    user: req.session.user_id ? req.session.user_id : null,
+  };
+  res.render("register", templeteVars);
 });
 
 router.post("/register", (req, res) => {
@@ -12,7 +15,7 @@ router.post("/register", (req, res) => {
   database
     .addUser(user)
     .then((user) => {
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       res.redirect("/");
     })
     .catch((e) => res.send(e));

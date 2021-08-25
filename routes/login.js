@@ -4,9 +4,12 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/login", (req, res) => {
-  req.session.user_id = req.params.id;
-  res.render("login");
+  // req.session.user_id = req.params.id;
+  const templeteVars = {};
+  templeteVars.user = req.session.user_id ? req.session.user_id : null;
+  res.render("login", templeteVars);
 });
+
 const login = function (email, password) {
   return database.getUserWithEmail(email).then((user) => {
     if (password === user.password) {
@@ -17,8 +20,6 @@ const login = function (email, password) {
 };
 exports.login = login;
 
-module.exports = router;
-
 router.post("/login", (req, res) => {
   login(req.body.email, req.body.password)
     .then((user) => {
@@ -27,8 +28,10 @@ router.post("/login", (req, res) => {
         return;
       }
 
-      req.session.userId = user.id;
+      req.session.user_id = user.id;
       res.redirect("/");
     })
     .catch((e) => res.send(e));
 });
+
+module.exports = router;
