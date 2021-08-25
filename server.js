@@ -52,6 +52,7 @@ const register = require("./routes/register");
 const favorites = require("./routes/favorites");
 const database = require("./database");
 const search = require("./routes/search");
+const mybooks = require("./routes/mybooks");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -61,7 +62,8 @@ app.use("/", books);
 app.use("/", login);
 app.use("/", register);
 app.use("/", search);
-app.use("/favorites", favorites);
+app.use("/", mybooks);
+app.use("/", favorites);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
@@ -76,7 +78,7 @@ app.get("/", (req, res) => {
       };
 
       templeteVars.user = req.session.user_id ? req.session.user_id : null;
-      // console.log("data", data);
+
       res.render("index", templeteVars);
     })
     .catch((err) => {
