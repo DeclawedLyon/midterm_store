@@ -7,12 +7,12 @@ const database = require("../database");
 router.get("/cart", (req, res) => {
   // const user_id = req.body.user;
   const user_id = req.session.user_id;
-  console.log(user_id);
   database
     .getUserWithId(user_id)
     .then((data) => {
-      console.log(data);
-      res.render('cart', [data]);
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.render("cart", templeteVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message })

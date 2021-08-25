@@ -52,11 +52,8 @@ const register = require("./routes/register");
 const favorites = require("./routes/favorites");
 const database = require("./database");
 const search = require("./routes/search");
-<<<<<<< HEAD
 const cart = require("./routes/cart");
-const user = require("./routes/user");
-=======
->>>>>>> cb00c646ccd715df900b97d0abc795b352be2f92
+
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own

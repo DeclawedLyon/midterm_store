@@ -184,3 +184,31 @@ const getAllItemsInCart = function (user_id) {
   `, [user_id])
 }
 exports.getAllItemsInCart = getAllItemsInCart;
+
+const getDetailsOfItemsInCart = function(user_id) {
+  return pool
+  .query(`
+  SELECT carts.id, books.title, price
+  FROM carts
+  JOIN users ON user_id = users.id
+  JOIN books ON book_id = books.id
+  WHERE users.id = $
+  GROUP BY carts.id, books.title, books.price;
+  `, [user_id])
+}
+exports.getDetailsOfItemsInCart = getDetailsOfItemsInCart;
+
+const getSumOfAllItemsInCart = function (user_id) {
+  return pool
+  .query(`
+  SELECT users.name, SUM(books.price)
+  FROM carts
+  JOIN users ON user_id = users.id
+  JOIN books ON book_id = books.id
+  WHERE users.id = $
+  GROUP BY users.id
+  ORDER BY SUM(books.price);
+  `, [user_id])
+}
+exports.getSumOfAllItemsInCart = getSumOfAllItemsInCart;
+
