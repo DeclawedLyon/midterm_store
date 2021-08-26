@@ -22,21 +22,22 @@
 
     <div class="messages-box">
       <% for (let message of data) { %>
-        <% if (message.sender_id) { %>
+        <% if (message.sender_id !== user) { %>
           <p id="from-buyer" style="display: inline-block; margin-right: auto; background-color: #4a82de; color: white">
-         From <%= message.sender_id %>  : <%= message.content %>
+         From User<%= message.sender_id %>  : <%= message.content %>
           </p>
         <% } else { %>
           <p id="from-seller" style="display: inline-block; margin-left: auto; background-color: green; color: white"">
-            <%= message.content %>
+         From you:<%= message.content %>
           </p>
         <% } %>
-      <% } %>
-      <form method="POST" action="/mymessages" id="message-buyer-seller">
-        <input type="text" name="message" id="message-input"></input>
-        <button type="submit" value="submit" id="send-message">Send</button>
-      </form>
-    </div>
+        <% } %>
+        <form method="POST" action="/mymessages" id="message-buyer-seller">
+          <input type="text" name="content" id="message-input"></input>
+          <button type="submit" value="submit" id="send-message">Send to </button>
+          <input type="text" name="recipient_id"  id="message-input"placeholder="Enter UserID">
+        </form>
+      </div>
 
     <div class="footer-basic">
       <%- include('partials/footer') %>
