@@ -22,9 +22,11 @@
              <a class="nav-link active" aria-current="page" href="/cart">	🛒 Cart</a>
            </li>
 
-
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/mybooks"> MyBooks </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/mybooks"> MyMessages </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/addbook"> AddBooks </a>
@@ -32,10 +34,14 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/favorites"> MyFavorites </a>
               </li>
-              <form class = "form-inline" action = "/logout" method= "POST">
-                <button type="submit" class="btn btn-danger">Logout</button>
-              </form>
-                <li class="nav-item">
+              <li class="nav-item">
+                <form action = "/logout" method= "POST">
+                  <button type="submit" class="btn btn-danger">Logout</button>
+                </form>
+              </li>
+
+
+              <li class="nav-item">
                   <a class="nav-link active" type="button" href="/register">Register</a>
                 </li>
                 <li class="nav-item">

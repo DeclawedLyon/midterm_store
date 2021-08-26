@@ -11,32 +11,15 @@ $(() => {
   $("span").on("click", function () {
     $("#search-form").toggle("slow", function () {});
   });
+
+  $(".likes").on("click", function () {
+    $(".likes i").addClass("red-like");
+  });
+
+  $("td .btn-primary").on("click", function () {
+    console.log('dddddddddddd');
+    $("#sold-delete").append('<div class="sold">SOLD</div>');
+  });
 });
 
-$("#like").click((evt) => {
-  if ($(evt.target).data("id") === "likes") {
-    // evt.stopPropagation();
-    evt.preventDefault();
-    $(evt.target)
-      .removeClass("far fa-heart")
-      .addClass("fas fa-heart")
-      .css("color", "red");
-    $(evt.target).data("id", "fas-fa-heart");
-    $.post("/favourites", { item_Id: $(evt.target).data("item") }).done(
-      (data) => {
-        console.log("done: ", data);
-      }
-    );
-  } else {
-    // evt.stopPropagation();
-    evt.preventDefault();
-    $(evt.target).removeClass("fas fa-heart").addClass("far fa-heart");
-    $(evt.target).data("id", "far-fa-heart");
 
-    $.post("/favourites/delete", { itemId: $(evt.target).data("item") }).done(
-      () => {
-        console.log("deleted");
-      }
-    );
-  }
-});

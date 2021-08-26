@@ -3,9 +3,15 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS books CASCADE;
 DROP TABLE IF EXISTS stores CASCADE;
 DROP TABLE IF EXISTS favorites CASCADE;
+<<<<<<< HEAD
 DROP TABLE IF EXISTS carts CASCADE;
 DROP TABLE IF EXISTS sales CASCADE;
 -- Create Tables for the Database
+=======
+DROP TABLE IF EXISTS sells CASCADE;
+-- DROP TABLE IF EXISTS messages CASCADE;
+-- Add users Table
+>>>>>>> 34d37c9f793d1ab3c65d6326f196c29e518fd0de
 CREATE TABLE users (
   id SERIAL PRIMARY KEY NOT NULL,
   name VARCHAR(255) NOT NULL,
@@ -53,4 +59,13 @@ CREATE TABLE sales (
   province VARCHAR(225) NOT NULL,
   postal_code VARCHAR(225) NOT NULL
 );
+<<<<<<< HEAD
 
+=======
+-- CREATE TABLE messages (
+--  id SERIAL PRIMARY KEY NOT NULL,
+--  sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+--  recipient_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+--  content TEXT NOT NULL,
+-- );
+>>>>>>> 34d37c9f793d1ab3c65d6326f196c29e518fd0de
