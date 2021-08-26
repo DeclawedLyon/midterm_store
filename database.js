@@ -25,7 +25,7 @@ const filterBooksByUser = function (id) {
       `
     SELECT *
     FROM books
-    WHERE  user_id = $1
+    WHERE  owner_id = $1
     ORDER BY id
   `,
       [id]
@@ -100,13 +100,16 @@ exports.getAllBooks = getAllBooks;
 
 const getAllFavorites = function (userId) {
   return pool
-    .query(`
-      SELECT books.bookcover, books.price, books.author
-      FROM favorites
-      JOIN users ON user_id = users.id
-      JOIN books ON book_id = books.id
-      WHERE user_id = $1;
-    `,[userId])
+    .query(
+      `
+  SELECT books.bookcover, books.price, books.author
+  FROM favorites
+  JOIN users ON user_id = users.id
+  JOIN books ON book_id = books.id
+  WHERE user_id = $1;
+`,
+      [userId]
+    )
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
@@ -229,79 +232,18 @@ exports.removeBook = removeBook;
 ///test
 const getWidgets = function () {
   return pool
-    .query(`
+    .query(
+      `
     SELECT *
     FROM widgets
-  `)
+
+  `
+    )
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
 exports.getWidgets = getWidgets;
 
-const getAllItemsInCart = function (user_id) {
-  return pool
-    .query(`
-    SELECT carts.id, users.name AS user, books
-    FROM carts
-    JOIN users ON user_id = users.id
-    JOIN books ON book_id = books.id
-    WHERE users.id = $1
-    ORDER BY users.name
-    ;
-  `, [user_id])
-}
-exports.getAllItemsInCart = getAllItemsInCart;
-
-const getDetailsOfItemsInCart = function (user_id) {
-  return pool
-    .query(`
-  SELECT carts.id, books.title, price
-  FROM carts
-  JOIN users ON user_id = users.id
-  JOIN books ON book_id = books.id
-  WHERE users.id = $
-  GROUP BY carts.id, books.title, books.price;
-  `, [user_id])
-}
-exports.getDetailsOfItemsInCart = getDetailsOfItemsInCart;
-
-const getSumOfAllItemsInCart = function (user_id) {
-  return pool
-    .query(`
-  SELECT users.name, SUM(books.price)
-  FROM carts
-  JOIN users ON user_id = users.id
-  JOIN books ON book_id = books.id
-  WHERE users.id = $
-  GROUP BY users.id
-  ORDER BY SUM(books.price);
-  `, [user_id])
-}
-exports.getSumOfAllItemsInCart = getSumOfAllItemsInCart;
-
-const createSale = function (saleObject) {
-  const userid = salesObject.user_id;
-  const storeId = salesObject.store_id;
-  const cartId = salesObject.cart_id;
-  const soldDate = Now();
-  const firstName = salesObject.first_name;
-  const lastName = saleObject.last_name;
-  const email = saleObject.email;
-  const phone = saleObject.phone;
-  const shippingAddress = saleObject.shipping_address
-  const city = saleObject.city;
-  const province = saleObject.province;
-  const postalCode = saleObject.postalCode;
-  return pool
-  .query(`
-    INSERT INTO sales (user_id, store_id, cart_id, sold_date, first_name, last_name, email, phone, shipping_address, city, province, postal_code)
-    VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
-  `, [userid, storeId, cartId, soldDate, firstName, lastName, email, phone, shippingAddress, city, province, postalCode])
-  .then((result) => result.rows)
-  .catch((err) => err.message);
-}
-
-exports.createSale = createSale;
 const addMessage = function (text) {
   const sender_id = text.sender_id;
   const recipient_id = text.recipient_id;

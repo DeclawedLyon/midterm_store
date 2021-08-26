@@ -52,8 +52,6 @@ const register = require("./routes/register");
 const favorites = require("./routes/favorites");
 const database = require("./database");
 const search = require("./routes/search");
-const cart = require("./routes/cart");
-
 const mybooks = require("./routes/mybooks");
 const addbook = require("./routes/addbook");
 const sold = require("./routes/sold");
@@ -69,7 +67,6 @@ app.use("/", books);
 app.use("/", login);
 app.use("/", register);
 app.use("/", search);
-app.use("/", cart)
 app.use("/", mybooks);
 app.use("/", favorites);
 app.use("/", addbook);

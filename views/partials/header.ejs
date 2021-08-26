@@ -18,10 +18,10 @@
              <a class="nav-link active" aria-current="page" href="/books"> Books </a>
            </li>
            <li class="nav-item">
-
-             <a class="nav-link active" aria-current="page" href="/cart">	🛒 Cart</a>
+            <span class="filter-books nav-link active" type="button">Filter</span>
            </li>
 
+           <% if(user){ %>
             <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="/mybooks"> MyBooks </a>
               </li>
@@ -40,14 +40,14 @@
                 </form>
               </li>
 
-
-              <li class="nav-item">
+              <% } else{ %>
+                <li class="nav-item">
                   <a class="nav-link active" type="button" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" type="button" href="/login">Log In</a>
                 </li>
-
+              <% } %>
 
 
          </ul>
