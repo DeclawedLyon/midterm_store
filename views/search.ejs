@@ -19,19 +19,40 @@
   <%- include('partials/header') %>
   <body>
     <main>
+
       <div class="book-list">
       <% for(let book of books) { %>
       <div class="book-one list">
         <img class="book-cover2" src=<%= book.bookcover %> >
         <div class="book-name"><%= book.title %></div>
-        <p class="book-author"> Author: $<%= book.author %></p>
-        <p class="book-year"> Year: $<%= book.year %></p>
-        <div class="book-price"> price: $<%= book.price %> </div>
+        <p class="book-author"> Author: <%= book.author %></p>
+        <p class="book-year"> Year: <%= book.year %></p>
+        <p class="book-price"> Price: $<%= book.price %> </p>
+        <div class="message-and-like">
+          <div class="form-inline">
+            <form action="messages/<%= book.owner_id %> " method="GET">
+              <button class="btn btn-danger">Send Message</button>
+            </form>
+            <form action="favorites/<%= book.id %> " method="GET">
+              <button class="btn btn-danger">Add to Favorite</button>
+            </form>
+
+          </div>
+        <% if (book.sold === true) { %>
+          <div class="sold">SOLD</div>
+        <%}%>
+        <!-- <p><button class="like" id="addlike">like</button> </p> -->
+
+          <div class="likes">
+            <i type="button" id="addlike" class="like fas fa-heart"></i>
+
+          </div>
+        </div>
+
     </div>
     <%}%>
 
     </main>
-
     <div class="footer-basic">
       <%- include('partials/footer') %>
   </div>
