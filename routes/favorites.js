@@ -16,4 +16,19 @@ router.get("/favorites", (req, res) => {
     });
 });
 
+router.get("/favorites/:id", (req, res) => {
+  let userid = req.session.user_id;
+  let bookid = req.params.id;
+  database
+    .addFavorite({ userid, bookid })
+    .then((data) => {
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.redirect("/favorites");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 module.exports = router;

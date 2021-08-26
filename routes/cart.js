@@ -5,15 +5,17 @@ const database = require("../database");
 router.get("/cart", (req, res) => {
   const userid = req.session.user_id;
   database
-    .filterBooksByUser(userid)
+    .getAllItemsInCart(userid)
     .then((data) => {
-      const finalPrice = data.reduce((total, currentItem) => {
-        return total.price + currentItem.price;
+      const books = data.rows;
+      let finalPrice = 0;
+      books.forEach( element => {
+        finalPrice += element.price;
       })
       const taxes = finalPrice * 0.15;
       const shipping = 5;
       const totalPrice = finalPrice + taxes + shipping;
-      const templateVars = { data, finalPrice, taxes, shipping, totalPrice };
+      const templateVars = { books, finalPrice, taxes, shipping, totalPrice };
       templateVars.user = req.session.user_id ? req.session.user_id : null;
       res.render("cart", templateVars);
     })
@@ -47,9 +49,9 @@ router.post("/cart", (req, res) => {
     data.forEach(element => {
       salesObject.saleItems.push(element.id);
     })
-    // res.json(salesObject);
+    res.json(salesObject);
     // res.json(data);
-    res.render("thankyou")
+    // res.render("thankyou")
   })
 })
 

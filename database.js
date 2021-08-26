@@ -282,7 +282,7 @@ exports.getMessageWithId = getMessageWithId;
 const getAllItemsInCart = function (user_id) {
   return pool
     .query(`
-    SELECT carts.id, users.name AS user, books
+    SELECT carts.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
     FROM carts
     JOIN users ON user_id = users.id
     JOIN books ON book_id = books.id
@@ -343,3 +343,33 @@ const createSale = function (saleObject) {
 }
 
 exports.createSale = createSale;
+const addFavorite = function (text) {
+  const userid = text.userid;
+  const bookid = text.bookid;
+  return pool
+    .query(
+      `
+      INSERT INTO favorites (user_id,book_id)
+      VALUES ($1, $2)
+      RETURNING *
+      `,
+      [userid, bookid]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+
+exports.addFavorite = addFavorite;
+
+const addToCart = function (book) {
+  const userid = req.session.user_id;
+  const book_id = book.id;
+  return pool
+  .query(`
+    INSERT INTO carts (user_id, book_id)
+    VALUES ($1, $2)
+    RETURNING *
+  `)
+}
+
+exports.addToCart = addToCart;
