@@ -9,7 +9,6 @@ router.get("/mymessages", (req, res) => {
     .getMessageWithId(userid)
     .then((data) => {
       const templeteVars = { data };
-      console.log("asbdkjabfblasbddddd", data);
       templeteVars.user = req.session.user_id ? req.session.user_id : null;
       res.render("mymessages", templeteVars);
     })
@@ -19,14 +18,15 @@ router.get("/mymessages", (req, res) => {
 });
 
 router.post("/mymessages", (req, res) => {
-  let userid = req.session.user_id;
+  const sender_id = req.session.user_id;
+  const recipient_id = req.body.receiver;
+  const content = req.body.message;
 
   database
-    .addMessage(userid)
+    .addMessage({ sender_id, recipient_id, content })
     .then((data) => {
-      const templeteVars = { data };
-      templeteVars.user = req.session.user_id ? req.session.user_id : null;
-      res.render("mybooks", templeteVars);
+      console.log("message", data);
+      res.redirect("/mymessages");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

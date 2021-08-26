@@ -269,7 +269,7 @@ const getMessageWithId = function (id) {
       `
     SELECT *
     FROM messages
-    WHERE recipient_id = $1
+    WHERE recipient_id = $1 OR sender_id =$1
     ORDER BY id
   `,
       [id]
