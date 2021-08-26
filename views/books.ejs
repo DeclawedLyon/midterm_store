@@ -37,20 +37,23 @@
             <form action="messages/<%= book.owner_id %> " method="GET">
               <button class="btn btn-danger">Send Message</button>
             </form>
-            <form action="favorites/<%= book.id %> " method="GET">
-              <button class="btn btn-danger">Add to Favorite</button>
+          </div>
+
+          <div>
+            <form type="submit" class="like" action="favorites/<%= book.id %> " method="GET">
+              <button class="btn btn-danger btn-sm">Favourites</button>
             </form>
 
           </div>
+
         <% if (book.sold === true) { %>
           <div class="sold">SOLD</div>
         <%}%>
         <!-- <p><button class="like" id="addlike">like</button> </p> -->
 
-          <div class="likes">
-            <i type="button" id="addlike" class="like fas fa-heart"></i>
+          <!-- <div class="likes">
 
-          </div>
+          </div> -->
         </div>
 
     </div>

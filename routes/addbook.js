@@ -21,7 +21,7 @@ router.post("/addbook", (req, res) => {
     .addBook({ owner_id, price, author, title, genre, year, bookcover })
     .then((data) => {
       console.log("data1111111111222", data);
-      res.redirect("/");
+      res.redirect("/mybooks");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
