@@ -218,9 +218,8 @@ const removeBook = function (id) {
   return pool
     .query(
       `
-      UPDATE books
-      SET sold = true
-      WHERE owner_id = $1
+      DELETE FROM books
+      WHERE id = $1
       RETURNING *
   `,
       [id]
@@ -228,7 +227,7 @@ const removeBook = function (id) {
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
-exports.soldBook = soldBook;
+exports.removeBook = removeBook;
 
 ///test
 const getWidgets = function () {
