@@ -11,9 +11,15 @@ $(() => {
   $("span").on("click", function () {
     $("#search-form").toggle("slow", function () {});
   });
+
+  $(".likes").on("click", function () {
+    $(".likes i").addClass("red-like");
+  });
+
+  $("td .btn-primary").on("click", function () {
+    console.log('dddddddddddd');
+    $("#sold-delete").append('<div class="sold">SOLD</div>');
+  });
 });
 
-$(".likes").on("click", function () {
-  console.log('dddddddddddd');
-  $(".likes i").addClass("red-like");
-});
+

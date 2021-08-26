@@ -18,12 +18,12 @@
   </head>
   <%- include('partials/header') %>
   <body>
-    <main>
+    <main id="sold-delete">
       <table class="table">
         <thead>
           <tr>
             <th scope="col">Books</th>
-            <th scope="col">author</th>
+            <th scope="col">Author</th>
             <th scope="col">Price</th>
             <th scope="col">Sold</th>
             <th scope="col">Delete</th>
@@ -34,9 +34,10 @@
             <tr>
               <td><div class="book-one list">
                 <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
-              <td><p class="book-author"> Author: <%= book.author %></p></td>
-              <td><p class="book-year"> Year: <%= book.year %></p></td>
-              <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">sold</button></form></td>
+               <!-- <div class="sold">SOLD</div> -->
+              <td><p class="book-author"> <%= book.author %></p></td>
+              <td><p class="book-year"> <%= book.year %></p></td>
+              <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">Sold</button></form></td>
               <td><form method="POST" action="delete/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
             </tr>
           <% } %>

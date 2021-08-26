@@ -181,7 +181,26 @@ body {
   margin: 0 20px 20px 20px;
   justify-content: space-between;
 }
-
+//SOLD BOK
+#sold-delete {
+  width: 80%;
+  margin: 5% auto;
+  position: relative;
+}
+table thead {
+  text-align: center;
+}
+.sold {
+  background-color: #d62929;
+  color: #e6dede;
+  font-size: 60px;
+  padding: 15px 30px;
+  font-weight: 600;
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  left: 200px;
+}
 //FOOTER
 .footer-basic {
   height: 200px;
