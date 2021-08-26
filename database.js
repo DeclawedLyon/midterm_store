@@ -243,3 +243,38 @@ const getWidgets = function () {
     .catch((err) => err.message);
 };
 exports.getWidgets = getWidgets;
+
+const addMessage = function (text) {
+  const sender_id = text.sender_id;
+  const recipient_id = text.recipient_id;
+  const content = text.content;
+  return pool
+    .query(
+      `
+      INSERT INTO messages (sender_id, recipient_id, content)
+      VALUES ($1, $2, $3)
+      RETURNING *
+      `,
+      [sender_id, recipient_id, content]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+
+exports.addMessage = addMessage;
+
+const getMessageWithId = function (id) {
+  return pool
+    .query(
+      `
+    SELECT *
+    FROM messages
+    WHERE recipient_id = $1
+    ORDER BY id
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.getMessageWithId = getMessageWithId;
