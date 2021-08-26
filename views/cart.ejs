@@ -25,86 +25,117 @@
   <body>
     <div class="order-container">
       <div>
-        <h2>Shipping Information</h2>
 
-        <form class="submit-shipping-info" action=/cart>
-          <div>
-            <label>First Name</label>
-            <input id="first-name" type="text">
-          </div>
-          <div>
-            <label>Last Name</label>
-            <input id="last Name" type="text">
-          </div>
-          <div>
-            <label>Shipping Address</label>
-            <input id="shipping-address" type="text" name="shipping address">
-          </div>
-          <div>
-            <label>City</label>
-            <input id="city" type="text">
-          </div>
-          <div>
-            <label>Province</label>
-            <input id="province" type="text">
-          </div>
-          <div>
-            <label>Postal Code</label>
-            <input id="postal-code" type="text">
-          </div>
-          <div>
-            <h2>Contact Information</h2>
-            <div>
-              <label>Email Address</label>
-              <input id="email-aaddress" type="text">
-            </div>
-            <div>
-              <label>Phone Number</label>
-              <input id="phone-number" type="text">
-            </div>
-            <button id="continue-to-payment" type="submit">Continue To Payment</button>
-        </form>
+            <form class="submit-shipping-info" method="POST" action=/cart>
+              <div>
+                <h2>Contact Information</h2>
+                <div>
+                  <label>Email Address</label>
+                  <input name="email-aaddress" type="text">
+                </div>
+                <div>
+                  <label>Phone Number</label>
+                  <input name="phone-number" type="text">
+                </div>
+              </div>
 
-      </div>
+              <div>
+                <h2>Shipping Information</h2>
+                <div>
+                  <label>First Name</label>
+                  <input name="first-name" type="text">
+                </div>
+                <div>
+                  <label>Last Name</label>
+                  <input name="last-name" type="text">
+                </div>
+                <div>
+                  <label>Shipping Address</label>
+                  <input name="shipping-address" type="text" name="shipping address">
+                </div>
+                <div>
+                  <label>City</label>
+                  <input name="city" type="text">
+                </div>
+                <div>
+                  <label>Province</label>
+                  <input name="province" type="text">
+                </div>
+                <div>
+                  <label>Postal Code</label>
+                  <input name="postal-code" type="text">
+                </div>
+              </div>
+
+              <div>
+                <h2>Payment Information</h2>
+                <div>
+                  <label>Card number</label>
+                  <input name="card-number" type="text">
+                </div>
+                <div>
+                  <div>
+                    <label>Expiration date</label>
+                    <input name="expiration-date" type="text">
+                  </div>
+                  <div>
+                    <label>Security code</label>
+                    <input name="security-code" type="text">
+                  </div>
+                </div>
+                <div>
+                  <div>
+                    <label>First name</label>
+                    <input name="credit-first-name" type="text">
+                  </div>
+                  <div>
+                    <label>Last name</label>
+                    <input name="credit-last-name" type="text">
+                  </div>
+                </div>
+              </div>
+              <button type="submit">Continue To Payment</button>
+            </form>
 
       <div>
         <h2>Order Summary</h2>
-        <div>
+          <div>
             <div class="order-item-display">
               <% for(let book of data) { %>
-                <div class="book-one list">
-                  <img class="book-cover2" src=<%= book.bookcover %> >
-                  <div class="book-name"><%= book.title %></div>
-                  <p class="book-author"> Author: <%= book.author %></p>
-                  <p class="book-year"> Year: <%= book.year %></p>
-                  <div class="book-price"> Price: $<%= book.price %> </div>
+                <div id="cart-book-list">
+                  <img id="cart-image" src=<%= book.bookcover %> >
+                  <div>
+                    <div class="book-name"><%= book.title %></div>
+                    <p class="book-author"> Author: <%= book.author %></p>
+                    <p class="book-year"> Year: <%= book.year %></p>
+                    <div class="book-price"> Price: $<%= book.price %> </div>
+                  </div>
               </div>
               <%}%>
             </div>
-            <div id="item-details-container">
-              <div>
-                <div>
-                  <label>Item Subtotal:</label>
-                  <label>$<%= finalPrice %></label>
-                </div>
-                <div>
-                  <label>Shipping:</label>
-                  <label>$<%= shipping %></label>
-                </div>
-                <div>
-                  <label>Taxes:</label>
-                  <label>$<%= taxes %></label>
-                </div>
-              </div>
 
+            <div class="order-total">
+              <div>
+                <label>Item Subtotal:</label>
+                <label>$<%= finalPrice %></label>
+              </div>
+              <div>
+                <label>Shipping:</label>
+                <label>$<%= shipping %></label>
+              </div>
+              <div>
+                <label>Taxes:</label>
+                <label>$<%= taxes %></label>
+              </div>
               <div>
                 <label>Total:</label>
                 <label>$<%= totalPrice %></label>
+              </div>
+            </div>
+
             </div>
 
           </div>
-
-        </div>
       </div>
 
     </div>

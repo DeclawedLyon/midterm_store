@@ -4,7 +4,6 @@ const router = express.Router();
 const database = require("../database");
 
 router.get("/login", (req, res) => {
-  // req.session.user_id = req.params.id;
   const templeteVars = {};
   templeteVars.user = req.session.user_id ? req.session.user_id : null;
   res.render("login", templeteVars);

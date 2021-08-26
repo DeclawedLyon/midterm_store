@@ -23,9 +23,10 @@ router.get("/cart", (req, res) => {
     })
 });
 
+
 router.post("/cart", (req, res) => {
-  const userid = req.session.userid;
-  res.json(userid);
+  res.json(req.body)
+  res.render("thankyou")
 })
 
 module.exports = router;

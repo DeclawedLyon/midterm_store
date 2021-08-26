@@ -13,7 +13,6 @@ INSERT INTO users (name,email,password)
 VALUES ('Tom','ffffff@hot.com', '66666');
 
 -- Books table seeds here
-<<<<<<< HEAD
 INSERT INTO books (user_id,price,author,title,genre,year,bookcover)
 VALUES(1, 25, 'Abam','King Without Glory','comic',2019,'https://images.pexels.com/photos/3747258/pexels-photo-3747258.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260');
 INSERT INTO books (user_id,price,author,title,genre,year,bookcover)
@@ -30,24 +29,6 @@ INSERT INTO books (user_id,price,author,title,genre,year,bookcover)
 VALUES(2, 65, 'Zac','Trees And Rebels','novel',2014,'https://images.pexels.com/photos/2148215/pexels-photo-2148215.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
 INSERT INTO books (user_id,price,author,title,genre,year,bookcover)
 VALUES(3, 77, 'Keson','Down The Road','novel',2018,'https://images.pexels.com/photos/3747149/pexels-photo-3747149.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
-=======
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(1, 25, 'Abam','King Without Glory','comic',2019,'https://images.pexels.com/photos/3747258/pexels-photo-3747258.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(2, 36, 'Alex','Vulture Of The Eclipse','romance',2017,'https://images.pexels.com/photos/735273/pexels-photo-735273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(3, 28, 'James','Guarded By History','horror',2018,'https://images.pexels.com/photos/4119140/pexels-photo-4119140.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(4, 15, 'Joe','Union Of Fire','fantasy',2013,'https://images.pexels.com/photos/3747272/pexels-photo-3747272.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(5, 5, 'Matt','Soldiers Of Fortune','science fiction',2015,'https://images.pexels.com/photos/3747309/pexels-photo-3747309.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(6, 85, 'Harry','Surprise Without Desire','mystery',2012,'https://images.pexels.com/photos/3747163/pexels-photo-3747163.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(2, 65, 'Zac','Trees And Rebels','novel',2014,'https://images.pexels.com/photos/2148215/pexels-photo-2148215.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
-INSERT INTO books (owner_id,price,author,title,genre,year,bookcover,sold)
-VALUES(3, 77, 'Keson','Down The Road','novel',2018,'https://images.pexels.com/photos/3747149/pexels-photo-3747149.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',false);
->>>>>>> a1bc1cfbdbbad8f44f909fe07a65e1bd65cf5188
 
 -- favorites table seeds here
 INSERT INTO favorites (user_id,book_id)
@@ -64,11 +45,6 @@ INSERT INTO favorites (user_id,book_id)
 VALUES (3,7);
 INSERT INTO favorites (user_id,book_id)
 VALUES (3,1);
-
--- sells table seeds here
-
-INSERT INTO sells (user_id, book_id, sold_date, total)
-VALUES(3,4,'2020-08-10',77);
 
 -- carts table seeds here
 
@@ -105,3 +81,8 @@ VALUES (5,7);
 
 INSERT INTO stores (user_id, book_id, price)
 VALUES (3, 7, 10);
+
+-- sells table seeds here
+
+INSERT INTO sales ( user_id, store_id, cart_id, sold_date, first_name, last_name, email, phone, shipping_address, city, province, postal_code )
+VALUES(3, 1, 1, '2020-08-10', 'Declan', 'Lyons', 'a@a.com', '4030000000', '100 1st SE', 'Atlantis', 'AB', 'B1G-8U7');
