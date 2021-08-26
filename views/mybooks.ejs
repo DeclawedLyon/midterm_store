@@ -37,7 +37,7 @@
               <td><p class="book-author"> Author: <%= book.author %></p></td>
               <td><p class="book-year"> Year: <%= book.year %></p></td>
               <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">Sold</button></form></td>
-              <td><form method="POST" action="delete/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+              <td><form method="POST" action="remove/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
             </tr>
           <% } %>
         </tbody>
