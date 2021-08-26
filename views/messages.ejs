@@ -1,4 +1,4 @@
-<!--
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -16,19 +16,14 @@
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
 
+    <%- include('partials/header') %>
   </head>
-  <%- include('partials/header') %>
   <body>
-    <section class="messages-display">
-      <p id="message-inbox">Message Inbox</p>
-      <% for (let message of messages) { %>
-        <article class="message-history">
-          <p class="sender_id"><%= message.sender_id %></p>
-          <p class="recipient_id">Messages with: <%= message.recipient_name %></p>
-          <p class="message">Last message: <%= message.message%></p>
-          <form method="GET" action="/messages/<%= message.recipient_id %>"><button type="submit">View Chat</button></form>
-        </article>
-      <% } %>
+    <section class="new-message">
+      <form method="POST" action="/messages">
+      <input type="text" name="newMessage" width="300px" height="300px"></input>
+      <button type="submit" id="post-ad-submit">Send</button>
+      </form>
     </section>
 
     <div class="footer-basic">
@@ -42,4 +37,4 @@
 
 
 
- -->
+

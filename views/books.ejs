@@ -32,7 +32,14 @@
         <p class="book-author"> Author: <%= book.author %></p>
         <p class="book-year"> Year: <%= book.year %></p>
         <p class="book-price"> Price: $<%= book.price %> </p>
-        <p><button class="like" id="likes">like</button> </p>
+        <div class="message-and-like">
+          <form class = "form-inline" action = "/messages" method= "GET">
+            <button type="submit" class="btn btn-danger">Send Message</button>
+          </form>
+          <!-- <button class="like"id="likes">💛</button> -->
+          <i id="likes" class="like far fa-heart"></i>
+        </div>
+
 
     </div>
     <%}%>
