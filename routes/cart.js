@@ -47,10 +47,10 @@ router.post("/cart", (req, res) => {
     data.forEach(element => {
       salesObject.saleItems.push(element.id);
     })
-    res.json(salesObject);
+    // res.json(salesObject);
     // res.json(data);
+    res.render("thankyou")
   })
-  // res.render("thankyou")
 })
 
 module.exports = router;

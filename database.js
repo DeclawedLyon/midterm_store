@@ -238,7 +238,6 @@ const getWidgets = function () {
 };
 exports.getWidgets = getWidgets;
 
-<<<<<<< HEAD
 const getAllItemsInCart = function (user_id) {
   return pool
     .query(`
@@ -303,7 +302,6 @@ const createSale = function (saleObject) {
 }
 
 exports.createSale = createSale;
-=======
 const addMessage = function (text) {
   const sender_id = text.sender_id;
   const recipient_id = text.recipient_id;
@@ -338,4 +336,3 @@ const getMessageWithId = function (id) {
     .catch((err) => err.message);
 };
 exports.getMessageWithId = getMessageWithId;
->>>>>>> d2c5ee6045a83ab1f4caf6a507b047726aa1829d
