@@ -80,6 +80,7 @@ VALUES (5,7);
 -- store table seeds here
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 INSERT INTO stores (user_id, book_id, price)
 VALUES (3, 7, 10);
 =======
@@ -96,6 +97,20 @@ VALUES (3, 7, 10);
 -- INSERT INTO messages (sender_id, recipient_id, content)
 -- VALUES (3, 2, 'It is brand new');
 >>>>>>> 34d37c9f793d1ab3c65d6326f196c29e518fd0de
+=======
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (1, 3, 'Is it still available?');
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (3, 1, 'Yes. I have many in stock');
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (1, 3, 'Will you negotiate on the price?');
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (3, 1, 'What would you like to offer?');
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (2, 3, 'What is the condition of that book?');
+INSERT INTO messages (sender_id, recipient_id, content)
+VALUES (3, 2, 'It is brand new');
+>>>>>>> d2c5ee6045a83ab1f4caf6a507b047726aa1829d
 
 -- sells table seeds here
 

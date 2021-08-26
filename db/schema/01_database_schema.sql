@@ -9,7 +9,7 @@ DROP TABLE IF EXISTS sales CASCADE;
 -- Create Tables for the Database
 =======
 DROP TABLE IF EXISTS sells CASCADE;
--- DROP TABLE IF EXISTS messages CASCADE;
+DROP TABLE IF EXISTS messages CASCADE;
 -- Add users Table
 >>>>>>> 34d37c9f793d1ab3c65d6326f196c29e518fd0de
 CREATE TABLE users (
@@ -60,6 +60,7 @@ CREATE TABLE sales (
   postal_code VARCHAR(225) NOT NULL
 );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 -- CREATE TABLE messages (
@@ -69,3 +70,11 @@ CREATE TABLE sales (
 --  content TEXT NOT NULL,
 -- );
 >>>>>>> 34d37c9f793d1ab3c65d6326f196c29e518fd0de
+=======
+CREATE TABLE messages (
+ id SERIAL PRIMARY KEY NOT NULL,
+ sender_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+ recipient_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+ content TEXT NOT NULL
+);
+>>>>>>> d2c5ee6045a83ab1f4caf6a507b047726aa1829d

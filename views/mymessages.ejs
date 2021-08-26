@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -19,10 +18,21 @@
     <%- include('partials/header') %>
   </head>
   <body>
-    <h1 style="padding-top: 60px; display: flex; justify-content: center;">Messages</h1>
-    <div class="messages-box">
+    <h1 style="padding-top: 60px; display: flex; justify-content: center;">MyMessages</h1>
 
-      <form style=" display: flex; justify-content: center;"method="POST" action="/messages/<%= ownerid %>" id="message-buyer-seller">
+    <div class="messages-box">
+      <% for (let message of data) { %>
+        <% if (message.sender_id) { %>
+          <p id="from-buyer" style="display: inline-block; margin-right: auto; background-color: #4a82de; color: white">
+         From <%= message.sender_id %>  : <%= message.content %>
+          </p>
+        <% } else { %>
+          <p id="from-seller" style="display: inline-block; margin-left: auto; background-color: green; color: white"">
+            <%= message.content %>
+          </p>
+        <% } %>
+      <% } %>
+      <form method="POST" action="/mymessages" id="message-buyer-seller">
         <input type="text" name="message" id="message-input"></input>
         <button type="submit" value="submit" id="send-message">Send</button>
       </form>
@@ -36,7 +46,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
   </body>
 </html>
-
-
-
-
