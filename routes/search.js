@@ -8,8 +8,10 @@ router.get("/search", (req, res) => {
   database
     .filterBooksByPrice(min, max)
     .then((books) => {
-      console.log("1111122222222", books);
-      res.render("search", { books });
+      const templeteVars = { books };
+
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.render("search", templeteVars);
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

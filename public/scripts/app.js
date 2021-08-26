@@ -17,10 +17,7 @@ $(() => {
   });
 
   $("td .btn-primary").on("click", function () {
-    console.log('dddddddddddd');
-    $("td .btn-primary").addClass('disappire');
+    console.log("dddddddddddd");
+    $("td .btn-primary").addClass("disappire");
   });
-
 });
-
-
