@@ -19,12 +19,19 @@
     <%- include('partials/header') %>
   </head>
   <body>
-    <h1 style="padding-top: 60px; display: flex; justify-content: center;">Messages</h1>
-    <div class="messages-box">
+    <h2 class="my-messages">Send message to the book owner!</h2>
+    <div class="message-box">
 
-      <form style=" display: flex; justify-content: center;"method="POST" action="/messages/<%= ownerid %>" id="message-buyer-seller">
-        <input type="text" name="message" id="message-input"></input>
-        <button type="submit" value="submit" id="send-message">Send</button>
+      <form method="POST" action="/messages/<%= ownerid %>" id="message-buyer-seller">
+        <div>
+          <textarea name="message" id="message-input" cols="60" rows="10"></textarea>
+          <!-- <input type="text" name="message" id="message-input"></input> -->
+
+        </div>
+        <div class="d-grid gap-2">
+          <!-- <button class="btn btn-primary" type="button">Button</button> -->
+          <button type="submit" value="submit" id="send-message" class="btn btn-danger">Send</button>
+        </div>
       </form>
     </div>
 
