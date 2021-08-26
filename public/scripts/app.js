@@ -12,9 +12,9 @@ $(() => {
     $("#search-form").toggle("slow", function () {});
   });
 
-  $(".likes").on("click", function () {
-    $(".likes i").addClass("red-like");
-  });
+  // $(".likes").on("click", function () {
+  //   $(".likes i").addClass("red-like");
+  // });
 
   $("td .btn-primary").on("click", function () {
     console.log('dddddddddddd');
