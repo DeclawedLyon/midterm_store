@@ -44,7 +44,7 @@ VALUES (5,6);
 INSERT INTO favorites (user_id,book_id)
 VALUES (3,7);
 INSERT INTO favorites (user_id,book_id)
-VALUES (3,1);
+VALUES (3,1);q
 
 INSERT INTO sells (book_id,sold_date,total,user_id)
 VALUES(8,'2020-08-10',77,4);
