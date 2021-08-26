@@ -19,8 +19,8 @@ router.get("/mymessages", (req, res) => {
 
 router.post("/mymessages", (req, res) => {
   const sender_id = req.session.user_id;
-  const recipient_id = req.body.receiver;
-  const content = req.body.message;
+  const recipient_id = req.body.recipient_id;
+  const content = req.body.content;
 
   database
     .addMessage({ sender_id, recipient_id, content })
