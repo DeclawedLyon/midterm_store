@@ -32,6 +32,9 @@
         <p class="book-author"> Author: <%= book.author %></p>
         <p class="book-year"> Year: <%= book.year %></p>
         <p class="book-price"> Price: $<%= book.price %> </p>
+        <% if (book.sold === true) { %>
+          <div class="sold">SOLD</div>
+        <%}%>
         <!-- <p><button class="like" id="addlike">like</button> </p> -->
         <div class="message-and-like">
           <div class="form-inline">
