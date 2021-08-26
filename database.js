@@ -172,7 +172,7 @@ const addUser = function (user) {
       `,
       [name, email, password]
     )
-    .then((result) => result.rows)
+    .then((result) => result.rows[0])
     .catch((err) => err.message);
 };
 exports.addUser = addUser;
