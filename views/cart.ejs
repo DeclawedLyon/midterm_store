@@ -25,7 +25,7 @@
   <body>
     <div class="order-container">
       <div>
-
+          <div id="shipping-info">
             <form class="submit-shipping-info" method="POST" action=/cart>
               <div>
                 <h2>Contact Information</h2>
@@ -96,20 +96,22 @@
               </div>
               <button type="submit">Continue To Payment</button>
             </form>
+          </div>
 
-      <div>
+      <div id="test2">
         <h2>Order Summary</h2>
-          <div>
+          <div id="test-div">
             <div class="order-item-display">
               <% for(let book of books) { %>
                 <div id="cart-book-list">
-                  <img id="cart-image" src=<%= book.bookcover %> >
+                  <img id="cart-image" src=<%= book.bookcover %>>
                   <div>
                     <div class="book-name"><%= book.title %></div>
                     <p class="book-author"> Author: <%= book.author %></p>
                     <p class="book-year"> Year: <%= book.year %></p>
                     <div class="book-price"> Price: $<%= book.price %> </div>
                   </div>
+                  <button>Delete</button>
               </div>
               <%}%>
             </div>

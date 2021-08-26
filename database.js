@@ -361,15 +361,16 @@ const addFavorite = function (text) {
 
 exports.addFavorite = addFavorite;
 
-const addToCart = function (book) {
+const addToCart = function (book_id) {
   const userid = req.session.user_id;
-  const book_id = book.id;
   return pool
   .query(`
     INSERT INTO carts (user_id, book_id)
     VALUES ($1, $2)
     RETURNING *
-  `)
+    `,
+    [userid, book_id]
+  )
 }
 
 exports.addToCart = addToCart;
