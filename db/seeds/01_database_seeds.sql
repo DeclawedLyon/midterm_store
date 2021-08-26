@@ -49,5 +49,17 @@ VALUES (3,1);
 INSERT INTO sells (book_id,sold_date,total,user_id)
 VALUES(8,'2020-08-10',77,4);
 
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (1, 3, 'Is it still available?');
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (3, 1, 'Yes. I have many in stock');
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (1, 3, 'Will you negotiate on the price?');
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (3, 1, 'What would you like to offer?');
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (2, 3, 'What is the condition of that book?');
+-- INSERT INTO messages (sender_id, recipient_id, content)
+-- VALUES (3, 2, 'It is brand new');
 
 

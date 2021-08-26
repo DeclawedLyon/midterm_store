@@ -13,6 +13,7 @@ $(() => {
   });
 });
 
-$("#addlike").on("click", function () {
-  $("#search-form").toggle("slow", function () {});
+$(".likes").on("click", function () {
+  console.log('dddddddddddd');
+  $(".likes i").addClass("red-like");
 });

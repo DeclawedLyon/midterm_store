@@ -25,7 +25,7 @@ router.post("/delete/:id", (req, res) => {
     .then((data) => {
       const templeteVars = { data };
       templeteVars.user = req.session.user_id ? req.session.user_id : null;
-      res.render("mybooks", templeteVars);
+      res.redirect("/mybooks");
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });

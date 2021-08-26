@@ -45,8 +45,31 @@ body {
   margin: 30px auto;
   text-align: center;
 }
+//ADD NEW BOOK
 
-
+.addbook-page {
+  text-align: center;
+}
+.addbook-page h2 {
+  margin: 40px 0;
+  padding-left: 100px;
+}
+.addbook-button {
+  padding-left: 95px;
+}
+.addbook-page button {
+  width: 200px;
+}
+.addbook-input {
+  margin-bottom: 15px;
+}
+.addbook-input label {
+  width: 100px;
+  text-align: left;
+}
+.addbook-input input {
+  width: 350px;
+}
 //Main section
 .main-section {
   width: 80%;
@@ -135,6 +158,28 @@ body {
   text-align: center;
   font-size: 1em;
   margin-bottom: 0;
+}
+.book-one {
+  position: relative;
+}
+.form-inline {
+  position: absolute;
+  bottom: 220px;
+}
+.like {
+  position: absolute;
+  bottom: 220px;
+  right: 30px;
+  font-size: 30px;
+  color: #c6a78f;
+}
+.red-like {
+  color: #d62929;
+}
+.message-and-like {
+  display: flex;
+  margin: 0 20px 20px 20px;
+  justify-content: space-between;
 }
 
 //FOOTER

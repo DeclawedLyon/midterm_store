@@ -19,33 +19,47 @@
   <%- include('partials/header') %>
   <body>
     <main>
-      <h1 style="padding-top: 130px; display: flex; justify-content: center;">Add a Book</h1>
-    <div class="addbook-page">
+      <div class="addbook-page">
+      <h2>Add new Book</h2>
     <div id="addbook-form">
       <form method="POST" action="/addbook">
-        <label>Title:</label>
-        <input type="text" name="title" id="nav-input" style="width: 350px;"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        <div class="addbook-input">
+          <label>Title:</label>
+          <input type="text" name="title" id="nav-input"></input>
 
-        <label>Year:</label>
-        <input type="text" name="year" id="nav-input" style="width: 350px;"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        </div>
 
-        <label>Genre:</label>
-        <input type="text" name="genre" id="nav-input" style="width: 350px;"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        <!-- <p style="line-height: 0.1em;">&nbsp;</p> -->
+        <div class="addbook-input">
+          <label>Year:</label>
+          <input type="text" name="year" id="nav-input"></input>
 
-        <label>Author:</label>
-        <input type="text" name="author" id="nav-input" style="width: 350px;"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        </div>
 
-        <label>Price:</label>
-        <input type="number" name="price" id="nav-input" style="width: 350px"></input>
-        <p style="line-height: 0.1em;">&nbsp;</p>
+        <!-- <p style="line-height: 0.1em;">&nbsp;</p> -->
+        <div class="addbook-input">
+          <label>Genre:</label>
+          <input type="text" name="genre" id="nav-input"></input>
+        </div>
 
-        <label>Image URL:</label>
-        <input type="text" name="bookcover" id="nav-input"></input>
-        <button type="submit" value="submit" id="post-ad-submit">Submit</button>
+        <div class="addbook-input">
+          <label>Author:</label>
+          <input type="text" name="author" id="nav-input"></input>
+
+        </div>
+
+        <div class="addbook-input">
+          <label>Price:</label>
+          <input type="number" name="price" id="nav-input"></input>
+        </div>
+
+        <div class="addbook-input">
+          <label>Image URL:</label>
+          <input type="text" name="bookcover" id="nav-input"></input> <br>
+        </div>
+        <div class="addbook-button">
+          <button type="submit" value="submit" id="post-ad-submit" class="btn btn-danger btn-lg">Submit</button>
+        </div>
       </form>
     </div>
     </div>
