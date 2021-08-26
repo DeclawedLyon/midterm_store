@@ -18,8 +18,9 @@ $(() => {
 
   $("td .btn-primary").on("click", function () {
     console.log('dddddddddddd');
-    $("#sold-delete").append('<div class="sold">SOLD</div>');
+    $("td .btn-primary").addClass('disappire');
   });
+
 });
 
 

@@ -204,7 +204,7 @@ const soldBook = function (id) {
       `
       UPDATE books
       SET sold = true
-      WHERE owner_id = $1
+      WHERE id = $1
       RETURNING *
   `,
       [id]

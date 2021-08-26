@@ -11,6 +11,7 @@ console.log(bookid);
       console.log(data);
       const templeteVars = { data };
       templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      console.log('template', templeteVars);
       res.render("mybooks", templeteVars);
     })
     .catch((err) => {

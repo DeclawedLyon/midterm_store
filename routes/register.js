@@ -15,7 +15,7 @@ router.post("/register", (req, res) => {
     .addUser(user)
     .then((user) => {
       req.session.user_id = user.id;
-      res.redirect("/");
+      res.redirect("/books");
     })
     .catch((e) => res.send(e));
 });

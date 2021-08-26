@@ -31,14 +31,35 @@
         </thead>
         <tbody>
           <% for(let book of data) { %>
-            <tr>
+            <% if (book.sold === true) { %>
+              <tr>
+                <td><div class="book-one list">
+                  <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
+                <td><p class="book-author"> Author: <%= book.author %></p></td>
+                <td><p class="book-year"> Year: <%= book.year %></p></td>
+                <td><form class="disappear" method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">Sold</button></form></td>
+                <td><form method="POST" action="remove/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+              </tr>
+            <%}%>
+            <% if (book.sold === false) { %>
+              <tr>
+                <td><div class="book-one list">
+                  <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
+                <td><p class="book-author"> Author: <%= book.author %></p></td>
+                <td><p class="book-year"> Year: <%= book.year %></p></td>
+                <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">Sold</button></form></td>
+                <td><form method="POST" action="remove/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+              </tr>
+            <%}%>
+            <!-- <tr>
               <td><div class="book-one list">
                 <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
               <td><p class="book-author"> Author: <%= book.author %></p></td>
               <td><p class="book-year"> Year: <%= book.year %></p></td>
               <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">Sold</button></form></td>
               <td><form method="POST" action="remove/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
-            </tr>
+            </tr> -->
+
           <% } %>
         </tbody>
       </table>
