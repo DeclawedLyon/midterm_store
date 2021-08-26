@@ -44,10 +44,44 @@ VALUES (5,6);
 INSERT INTO favorites (user_id,book_id)
 VALUES (3,7);
 INSERT INTO favorites (user_id,book_id)
-VALUES (3,1);q
+VALUES (3,1);
 
-INSERT INTO sells (book_id,sold_date,total,user_id)
-VALUES(8,'2020-08-10',77,4);
+
+-- carts table seeds here
+
+INSERT INTO carts (user_id,book_id)
+VALUES (1,2);
+INSERT INTO carts (user_id,book_id)
+VALUES (2,3);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (4,5);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,1);
+INSERT INTO carts (user_id,book_id)
+VALUES (3,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (4,1);
+INSERT INTO carts (user_id,book_id)
+VALUES (2,2);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,4);
+INSERT INTO carts (user_id,book_id)
+VALUES (1,5);
+INSERT INTO carts (user_id,book_id)
+VALUES (1,7);
+INSERT INTO carts (user_id,book_id)
+VALUES (5,7);
+
+-- store table seeds here
+
+INSERT INTO stores (owner_id, book_id, price)
+VALUES (3, 7, 10);
 
 INSERT INTO messages (sender_id, recipient_id, content)
 VALUES (1, 3, 'Is it still available?');
@@ -63,3 +97,6 @@ INSERT INTO messages (sender_id, recipient_id, content)
 VALUES (3, 2, 'It is brand new');
 
 
+-- sells table seeds here
+INSERT INTO sales ( user_id, store_id, cart_id, sold_date, first_name, last_name, email, phone, shipping_address, city, province, postal_code )
+VALUES(3, 1, 1, '2020-08-10', 'Declan', 'Lyons', 'a@a.com', '4030000000', '100 1st SE', 'Atlantis', 'AB', 'B1G-8U7');
