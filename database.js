@@ -198,6 +198,38 @@ const addBook = function (book) {
 };
 exports.addBook = addBook;
 
+const soldBook = function (id) {
+  return pool
+    .query(
+      `
+      UPDATE books
+      SET sold = true
+      WHERE owner_id = $1
+      RETURNING *
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.soldBook = soldBook;
+
+const removeBook = function (id) {
+  return pool
+    .query(
+      `
+      UPDATE books
+      SET sold = true
+      WHERE owner_id = $1
+      RETURNING *
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.soldBook = soldBook;
+
 ///test
 const getWidgets = function () {
   return pool

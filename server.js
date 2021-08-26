@@ -54,6 +54,7 @@ const database = require("./database");
 const search = require("./routes/search");
 const mybooks = require("./routes/mybooks");
 const addbook = require("./routes/addbook");
+const sold = require("./routes/sold");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -66,6 +67,7 @@ app.use("/", search);
 app.use("/", mybooks);
 app.use("/", favorites);
 app.use("/", addbook);
+app.use("/", sold);
 // Note: mount other resources here, using the same pattern above
 
 // Home page
