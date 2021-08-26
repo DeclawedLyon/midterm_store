@@ -198,24 +198,37 @@ const addBook = function (book) {
 };
 exports.addBook = addBook;
 
-const addMessage = function (message) {
-  const sender_id = message.sender_id;
-  const recipient_id = message.recipient_id;
-  const newMessage = message.newMessage;
-
+const soldBook = function (id) {
   return pool
     .query(
       `
-      INSERT INTO messages (sender_id, recipient_id, message)
-      VALUES ($1, $2, $3)
+      UPDATE books
+      SET sold = true
+      WHERE owner_id = $1
       RETURNING *
-      `,
-      [sender_id, recipient_id, newMessage]
+  `,
+      [id]
     )
     .then((result) => result.rows)
     .catch((err) => err.message);
 };
-exports.addMessage = addMessage;
+exports.soldBook = soldBook;
+
+const removeBook = function (id) {
+  return pool
+    .query(
+      `
+      UPDATE books
+      SET sold = true
+      WHERE owner_id = $1
+      RETURNING *
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.soldBook = soldBook;
 
 ///test
 const getWidgets = function () {

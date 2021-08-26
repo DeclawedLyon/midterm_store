@@ -36,14 +36,12 @@
                 <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
               <td><p class="book-author"> Author: <%= book.author %></p></td>
               <td><p class="book-year"> Year: <%= book.year %></p></td>
-              <td><form method="GET" action="/sold"><button type="submit" class="btn btn-primary">sold</button></form></td>
-              <td><form method="POST" action="/delete"><button type="submit" class="btn btn-danger">Delete</button></form></td>
+              <td><form method="GET" action="sold/<%= book.id %>"><button type="submit" class="btn btn-primary">sold</button></form></td>
+              <td><form method="POST" action="delete/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form></td>
             </tr>
           <% } %>
         </tbody>
       </table>
-
-
     </main>
 
     <div class="footer-basic">

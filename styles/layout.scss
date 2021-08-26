@@ -166,12 +166,15 @@ body {
   position: absolute;
   bottom: 220px;
 }
-#likes {
+.like {
   position: absolute;
   bottom: 220px;
   right: 30px;
   font-size: 30px;
-  color: #d62929;;
+  color: #c6a78f;
+}
+.red-like {
+  color: #d62929;
 }
 .message-and-like {
   display: flex;
