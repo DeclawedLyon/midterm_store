@@ -35,8 +35,10 @@
         <div class="message-and-like">
           <div class="form-inline">
             <form action="messages/<%= book.owner_id %> " method="GET">
-
               <button class="btn btn-danger">Send Message</button>
+            </form>
+            <form action="favorites/<%= book.id %> " method="GET">
+              <button class="btn btn-danger">Add to Favorite</button>
             </form>
 
           </div>

@@ -278,3 +278,21 @@ const getMessageWithId = function (id) {
     .catch((err) => err.message);
 };
 exports.getMessageWithId = getMessageWithId;
+
+const addFavorite = function (text) {
+  const userid = text.userid;
+  const bookid = text.bookid;
+  return pool
+    .query(
+      `
+      INSERT INTO favorites (user_id,book_id)
+      VALUES ($1, $2)
+      RETURNING *
+      `,
+      [userid, bookid]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+
+exports.addFavorite = addFavorite;
