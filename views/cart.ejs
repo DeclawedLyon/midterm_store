@@ -11,10 +11,6 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@700&family=Satisfy&display=swap" rel="stylesheet">
-
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
@@ -28,16 +24,16 @@
 
   <body>
     <div class="order-container">
-
+      <div>
           <div id="shipping-info">
             <form class="submit-shipping-info" method="POST" action=/cart>
               <div>
                 <h2>Contact Information</h2>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Email Address</label>
                   <input name="emailAddress" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Phone Number</label>
                   <input name="phoneNumber" type="text">
                 </div>
@@ -45,27 +41,27 @@
 
               <div>
                 <h2>Shipping Information</h2>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>First Name</label>
                   <input name="firstName" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Last Name</label>
                   <input name="lastName" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Shipping Address</label>
                   <input name="shippingAddress" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>City</label>
                   <input name="city" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Province</label>
                   <input name="province" type="text">
                 </div>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Postal Code</label>
                   <input name="postalCode" type="text">
                 </div>
@@ -73,26 +69,26 @@
 
               <div>
                 <h2>Payment Information</h2>
-                <div class="contact-info">
+                <div class="user-input">
                   <label>Card number</label>
                   <input name="cardNumber" type="text">
                 </div>
-                <div class="contact-info">
-                  <div>
+                <div>
+                  <div class="user-input">
                     <label>Expiration date</label>
                     <input name="expirationDate" type="text">
                   </div>
-                  <div class="contact-info">
+                  <div class="user-input">
                     <label>Security code</label>
                     <input name="securityCode" type="text">
                   </div>
                 </div>
                 <div>
-                  <div class="contact-info">
+                  <div class="user-input">
                     <label>First name</label>
                     <input name="creditFirstName" type="text">
                   </div>
-                  <div class="contact-info">
+                  <div class="user-input">
                     <label>Last name</label>
                     <input name="creditLastName" type="text">
                   </div>
@@ -104,6 +100,24 @@
 
       <div id="test2">
         <h2>Order Summary</h2>
+        <div class="order-total">
+          <div>
+            <label>Item Subtotal:</label>
+            <label>$<%= finalPrice %></label>
+          </div>
+          <div>
+            <label>Shipping:</label>
+            <label>$<%= shipping %></label>
+          </div>
+          <div>
+            <label>Taxes:</label>
+            <label>$<%= taxes %></label>
+          </div>
+          <div>
+            <label>Total:</label>
+            <label>$<%= totalPrice %></label>
+          </div>
+        </div>
           <div id="test-div">
             <div class="order-item-display">
               <% for(let book of books) { %>
@@ -115,41 +129,18 @@
                     <p class="book-year"> Year: <%= book.year %></p>
                     <div class="book-price"> Price: $<%= book.price %> </div>
                   </div>
-                  <form method="POST" action="removecart/<%= book.id %>"><button type="submit" class="btn btn-danger">Delete</button></form>
+                  <button class="btn btn-danger">Remove</button>
               </div>
               <%}%>
             </div>
-
-            <div class="order-total">
-              <div>
-                <label class="count">Item Subtotal:</label>
-                <label class="total">$<%= finalPrice %></label>
-              </div>
-              <div>
-                <label class="count">Shipping:</label>
-                <label class="total">$<%= shipping %></label>
-              </div>
-              <div>
-                <label class="count">Taxes:</label>
-                <label class="total">$<%= taxes %></label>
-              </div>
-              <div>
-                <label class="count"> <b>Total</b> :</label>
-                <label class="total"><b>$<%= totalPrice %></b></label>
-              </div>
-            </div>
-
             </div>
 
           </div>
-
+      </div>
 
     </div>
 
-    <!-- <%- include('partials/footer') %> -->
-    <div class="footer-basic">
-      <%- include('partials/footer') %>
-  </div>
   </body>
+  <%- include('partials/footer') %>
 
 </html>
