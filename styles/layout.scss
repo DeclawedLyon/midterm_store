@@ -12,7 +12,7 @@ body {
     letter-spacing: 3px;
   }
 }
-// Header
+// Header/////////////////////////////////////////
 .container-fluid {
     border-top: solid brown 0.5px;
     padding-top: 15px;
@@ -39,7 +39,7 @@ body {
   width: 100%;
   justify-content: space-around;
 }
-//MY MESSAGES
+//MY MESSAGES/////////////////////////////////////
 .messages-box {
   width: 50%;
   margin: 0 auto;
@@ -74,13 +74,13 @@ body {
 .message-box textarea {
   width: 100%;
 }
-//Search-form
+//Search-form/////////////////////////////////
 #search-form {
   display: none;
   margin: 30px auto;
   text-align: center;
 }
-//ADD NEW BOOK
+//ADD NEW BOOK///////////////////////////////////
 
 .addbook-page {
   text-align: center;
@@ -105,7 +105,7 @@ body {
 .addbook-input input {
   width: 350px;
 }
-//Main section
+//Main section///////////////////////////////////////////
 .main-section {
   width: 80%;
 }
@@ -214,7 +214,7 @@ body {
   margin: 0 20px 20px 20px;
   justify-content: space-between;
 }
-//SOLD BOK
+//SOLD BOOK////////////////////////////////////////////
 #sold-delete {
   width: 80%;
   margin: 5% auto;
@@ -237,7 +237,7 @@ table thead {
 .disappear {
   display: none;
 }
-//FOOTER
+//FOOTER///////////////////////////////////////////////////
 .footer-basic {
   height: 200px;
   margin-top: 300px;
@@ -300,7 +300,7 @@ table thead {
   margin-bottom: 0;
 }
 
-//Login page
+//Login page//////////////////////////////////////////////
 .login-page {
   position: relative;
 }
@@ -341,7 +341,7 @@ table thead {
   margin-top: 20px;
   padding: 7px 30px;
 }
-//Register page
+//Register page///////////////////////////////////////////////////
 .register {
   width: 500px;
   height: 500px;
@@ -351,6 +351,45 @@ table thead {
   text-align: center;
   box-shadow: 10px 10px #e6dede;
 }
+//CART ///////////////////////////////////////////////////////////
+.order-container {
+  width: 70%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: space-between;
+}
+.contact-info label {
+  width: 150px;
+  text-align: left;
+  margin-bottom: 10px;
+}
+#cart-book-list {
+  width: 500px;
+  margin: 0 0 20px 0;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+#cart-image {
+  width: 150px;
+}
+#test2 h2 {
+  text-align: center;
+  margin: 30px auto;
+}
+#shipping-info h2, #shipping-info button {
+  margin: 30px auto;
+}
+.order-total {
+  width: 500px;
+  border: 1px solid;
+  padding: 15px;
+  font-size: 20px;
+}
+.count {
+  width: 250px;
+}
+//SMALL SCREEN ////////////////////////////////////////////////////
 @media only screen and (max-width: 992px) {
   .container {
     margin-top: 450px;
@@ -373,4 +412,8 @@ table thead {
   .messages-box {
     width: 80%;
   }
+  .order-container {
+    flex-direction: column;
+  }
 }
+////////////////////////////////////////////////////////////////
