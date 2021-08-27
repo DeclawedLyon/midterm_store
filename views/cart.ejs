@@ -94,12 +94,30 @@
                   </div>
                 </div>
               </div>
-              <button type="submit">Continue To Payment</button>
+              <button class="btn btn-success" type="submit">Continue To Payment</button>
             </form>
           </div>
 
       <div id="test2">
         <h2>Order Summary</h2>
+        <div class="order-total">
+          <div>
+            <label>Item Subtotal:</label>
+            <label>$<%= finalPrice %></label>
+          </div>
+          <div>
+            <label>Shipping:</label>
+            <label>$<%= shipping %></label>
+          </div>
+          <div>
+            <label>Taxes:</label>
+            <label>$<%= taxes %></label>
+          </div>
+          <div>
+            <label>Total:</label>
+            <label>$<%= totalPrice %></label>
+          </div>
+        </div>
           <div id="test-div">
             <div class="order-item-display">
               <% for(let book of books) { %>
@@ -115,26 +133,6 @@
               </div>
               <%}%>
             </div>
-
-            <div class="order-total">
-              <div>
-                <label>Item Subtotal:</label>
-                <label>$<%= finalPrice %></label>
-              </div>
-              <div>
-                <label>Shipping:</label>
-                <label>$<%= shipping %></label>
-              </div>
-              <div>
-                <label>Taxes:</label>
-                <label>$<%= taxes %></label>
-              </div>
-              <div>
-                <label>Total:</label>
-                <label>$<%= totalPrice %></label>
-              </div>
-            </div>
-
             </div>
 
           </div>
