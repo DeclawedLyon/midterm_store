@@ -385,7 +385,7 @@ exports.addFavorite = addFavorite;
 
 const addToCart = function (id) {
   userid = id.userid;
-  book_id = id.book_id;
+  book_id = id.bookid;
   return pool
     .query(
       `

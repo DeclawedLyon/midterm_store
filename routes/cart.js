@@ -30,6 +30,7 @@ router.get("/cart/:id", (req, res) => {
   database
     .addToCart({ userid, bookid })
     .then((data) => {
+      console.log("111111111111", data);
       const templeteVars = { data };
       templeteVars.user = req.session.user_id ? req.session.user_id : null;
       res.redirect("/cart");
