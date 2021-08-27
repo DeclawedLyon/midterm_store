@@ -35,8 +35,8 @@
           <% for(let book of data) { %>
             <% if (book.sold === true) { %>
               <tr>
-                <td><div class="book-one list">
-                  <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
+                <td><div class="list">
+                  <img src=<%= book.bookcover %> ></div></td>
                 <td><p class="book-author"> Author: <%= book.author %></p></td>
                 <td><p class="book-author"> Year: <%= book.year %></p></td>
                 <td><p class="book-year"> Price: <%= book.price %></p></td>
@@ -46,8 +46,8 @@
             <%}%>
             <% if (book.sold === false) { %>
               <tr>
-                <td><div class="book-one list">
-                  <img class="book-cover2" src=<%= book.bookcover %> ></div></td>
+                <td><div class="list">
+                  <img src=<%= book.bookcover %> ></div></td>
                 <td><p class="book-author"> Author: <%= book.author %></p></td>
                 <td><p class="book-author"> Year: <%= book.year %></p></td>
                 <td><p class="book-year"> Price: <%= book.price %></p></td>

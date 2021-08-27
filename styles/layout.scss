@@ -12,6 +12,12 @@ body {
     letter-spacing: 3px;
   }
 }
+.slogan {
+  color: #244751;
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+  margin-bottom: 60px;
+}
 // Header/////////////////////////////////////////
 .container-fluid {
     border-top: solid brown 0.5px;
@@ -25,9 +31,9 @@ body {
   text-align: center;
 }
 .logo {
-  padding: 40px 0;
+  padding: 40px 0 0 0;
   text-align: center;
-  height: 3em;
+  //height: 3em;
 }
 .navbar {
   font-size: 1.3rem;
@@ -166,7 +172,7 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 100%px;
+  height: 100%;
 }
 .book-two img {
   width: 100%;
