@@ -400,3 +400,18 @@ const addToCart = function (id) {
 };
 
 exports.addToCart = addToCart;
+
+const removeBookFromCart = function (id) {
+  return pool
+    .query(
+      `
+      DELETE FROM carts
+      WHERE book_id = $1
+      RETURNING *
+  `,
+      [id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
+exports.removeBookFromCart = removeBookFromCart;

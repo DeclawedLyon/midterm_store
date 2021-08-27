@@ -69,4 +69,19 @@ router.post("/cart", (req, res) => {
   });
 });
 
+router.post("cart/delete/:id", (req, res) => {
+  const bookid = req.params.id;
+
+  database
+    .removeBookFromCart(bookid)
+    .then((data) => {
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.redirect("/cart");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
+
 module.exports = router;
