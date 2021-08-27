@@ -62,17 +62,12 @@ VALUES (5,7);
 INSERT INTO carts (user_id,book_id)
 VALUES (3,7);
 INSERT INTO carts (user_id,book_id)
-VALUES (3,1);
-INSERT INTO carts (user_id,book_id)
-VALUES (3,4);
-INSERT INTO carts (user_id,book_id)
 VALUES (4,1);
 INSERT INTO carts (user_id,book_id)
 VALUES (2,2);
 INSERT INTO carts (user_id,book_id)
 VALUES (5,4);
-INSERT INTO carts (user_id,book_id)
-VALUES (5,7);
+
 
 -- store table seeds here
 

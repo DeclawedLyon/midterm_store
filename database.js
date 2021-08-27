@@ -280,9 +280,10 @@ const getMessageWithId = function (id) {
 exports.getMessageWithId = getMessageWithId;
 
 const getAllItemsInCart = function (user_id) {
-  return pool.query(
-    `
-    SELECT carts.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
+  return pool
+    .query(
+      `
+    SELECT books.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
     FROM carts
     JOIN users ON user_id = users.id
     JOIN books ON book_id = books.id
@@ -290,8 +291,10 @@ const getAllItemsInCart = function (user_id) {
     ORDER BY users.name
     ;
   `,
-    [user_id]
-  );
+      [user_id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
 };
 exports.getAllItemsInCart = getAllItemsInCart;
 

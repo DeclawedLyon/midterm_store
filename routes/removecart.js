@@ -2,8 +2,9 @@ const express = require("express");
 const router = express.Router();
 const database = require("../database");
 
-router.post("removecart/:id", (req, res) => {
+router.post("/removecart/:id", (req, res) => {
   const bookid = req.params.id;
+  console.log("iiiiiiiiii", bookid);
 
   database
     .removeBookFromCart(bookid)
