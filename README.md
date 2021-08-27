@@ -6,21 +6,21 @@ Users have a converstations page where they can access their messages with buyer
 
 
 # Final Product
-['Login Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%202.29.31%20AM.png)
+['Login Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%202.29.31%20AM.png?raw=true)
 
-['Home Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.49.40%20AM.png)
+['Home Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.49.40%20AM.png?raw=true)
 
-['Books Main Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.51.05%20AM.png)
+['Books Main Page'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.51.05%20AM.png?raw=true)
 
-['Favorites'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.39%20AM.png)
+['Favorites'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.39%20AM.png?raw=true)
 
-['Shopping Cart'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%202.29.03%20AM.png)
+['Shopping Cart'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%202.29.03%20AM.png?raw=true)
 
-['Message User'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.18%20AM.png)
+['Message User'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.18%20AM.png?raw=true)
 
-['Edit Listing'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.51.55%20AM.png)
+['Edit Listing'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.51.55%20AM.png?raw=true)
 
-['Create New Listing'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.29%20AM.png)
+['Create New Listing'](https://github.com/DeclawedLyon/midterm_store/blob/master/docs/Screen%20Shot%202021-08-27%20at%201.52.29%20AM.png?raw=true)
 
 # Dependancies 
   * bcrypt
