@@ -282,7 +282,7 @@ exports.getMessageWithId = getMessageWithId;
 const getAllItemsInCart = function (user_id) {
   return pool.query(
     `
-    SELECT books.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
+    SELECT carts.id AS cart_id, books.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
     FROM carts
     JOIN users ON user_id = users.id
     JOIN books ON book_id = books.id
@@ -327,10 +327,11 @@ const getSumOfAllItemsInCart = function (user_id) {
 exports.getSumOfAllItemsInCart = getSumOfAllItemsInCart;
 
 const createSale = function (saleObject) {
+  console.log(salesObject)
   const userid = salesObject.user_id;
   const storeId = salesObject.store_id;
   const cartId = salesObject.cart_id;
-  const soldDate = Now();
+  const soldDate = Date.now();
   const firstName = salesObject.first_name;
   const lastName = saleObject.last_name;
   const email = saleObject.email;
