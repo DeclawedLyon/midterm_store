@@ -71,10 +71,7 @@ INSERT INTO carts (user_id,book_id)
 VALUES (2,2);
 INSERT INTO carts (user_id,book_id)
 VALUES (5,4);
-INSERT INTO carts (user_id,book_id)
-VALUES (1,5);
-INSERT INTO carts (user_id,book_id)
-VALUES (1,7);
+
 INSERT INTO carts (user_id,book_id)
 VALUES (5,7);
 

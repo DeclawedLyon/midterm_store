@@ -280,8 +280,8 @@ const getMessageWithId = function (id) {
 exports.getMessageWithId = getMessageWithId;
 
 const getAllItemsInCart = function (user_id) {
-  return pool
-    .query(`
+  return pool.query(
+    `
     SELECT carts.id, users.name AS user, books.owner_id, books.title, books.author, books.bookcover, books.year, books.price
     FROM carts
     JOIN users ON user_id = users.id
@@ -289,26 +289,30 @@ const getAllItemsInCart = function (user_id) {
     WHERE users.id = $1
     ORDER BY users.name
     ;
-  `, [user_id])
-}
+  `,
+    [user_id]
+  );
+};
 exports.getAllItemsInCart = getAllItemsInCart;
 
 const getDetailsOfItemsInCart = function (user_id) {
-  return pool
-    .query(`
+  return pool.query(
+    `
   SELECT carts.id, books.title, price
   FROM carts
   JOIN users ON user_id = users.id
   JOIN books ON book_id = books.id
   WHERE users.id = $
   GROUP BY carts.id, books.title, books.price;
-  `, [user_id])
-}
+  `,
+    [user_id]
+  );
+};
 exports.getDetailsOfItemsInCart = getDetailsOfItemsInCart;
 
 const getSumOfAllItemsInCart = function (user_id) {
-  return pool
-    .query(`
+  return pool.query(
+    `
   SELECT users.name, SUM(books.price)
   FROM carts
   JOIN users ON user_id = users.id
@@ -316,8 +320,10 @@ const getSumOfAllItemsInCart = function (user_id) {
   WHERE users.id = $
   GROUP BY users.id
   ORDER BY SUM(books.price);
-  `, [user_id])
-}
+  `,
+    [user_id]
+  );
+};
 exports.getSumOfAllItemsInCart = getSumOfAllItemsInCart;
 
 const createSale = function (saleObject) {
@@ -329,18 +335,34 @@ const createSale = function (saleObject) {
   const lastName = saleObject.last_name;
   const email = saleObject.email;
   const phone = saleObject.phone;
-  const shippingAddress = saleObject.shipping_address
+  const shippingAddress = saleObject.shipping_address;
   const city = saleObject.city;
   const province = saleObject.province;
   const postalCode = saleObject.postalCode;
   return pool
-  .query(`
+    .query(
+      `
     INSERT INTO sales (user_id, store_id, cart_id, sold_date, first_name, last_name, email, phone, shipping_address, city, province, postal_code)
     VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12)
-  `, [userid, storeId, cartId, soldDate, firstName, lastName, email, phone, shippingAddress, city, province, postalCode])
-  .then((result) => result.rows)
-  .catch((err) => err.message);
-}
+  `,
+      [
+        userid,
+        storeId,
+        cartId,
+        soldDate,
+        firstName,
+        lastName,
+        email,
+        phone,
+        shippingAddress,
+        city,
+        province,
+        postalCode,
+      ]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
 
 exports.createSale = createSale;
 const addFavorite = function (text) {
@@ -361,16 +383,20 @@ const addFavorite = function (text) {
 
 exports.addFavorite = addFavorite;
 
-const addToCart = function (book_id) {
-  const userid = req.session.user_id;
+const addToCart = function (id) {
+  userid = id.userid;
+  book_id = id.book_id;
   return pool
-  .query(`
+    .query(
+      `
     INSERT INTO carts (user_id, book_id)
     VALUES ($1, $2)
     RETURNING *
     `,
-    [userid, book_id]
-  )
-}
+      [userid, book_id]
+    )
+    .then((result) => result.rows)
+    .catch((err) => err.message);
+};
 
 exports.addToCart = addToCart;

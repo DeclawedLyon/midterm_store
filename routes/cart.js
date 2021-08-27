@@ -9,9 +9,9 @@ router.get("/cart", (req, res) => {
     .then((data) => {
       const books = data.rows;
       let finalPrice = 0;
-      books.forEach( element => {
+      books.forEach((element) => {
         finalPrice += element.price;
-      })
+      });
       const taxes = finalPrice * 0.15;
       const shipping = 5;
       const totalPrice = finalPrice + taxes + shipping;
@@ -20,15 +20,28 @@ router.get("/cart", (req, res) => {
       res.render("cart", templateVars);
     })
     .catch((err) => {
-      res.status(500).json({ error: err.message })
-    })
+      res.status(500).json({ error: err.message });
+    });
 });
 
+router.get("/cart/:id", (req, res) => {
+  let userid = req.session.user_id;
+  let bookid = req.params.id;
+  database
+    .addToCart({ userid, bookid })
+    .then((data) => {
+      const templeteVars = { data };
+      templeteVars.user = req.session.user_id ? req.session.user_id : null;
+      res.redirect("/cart");
+    })
+    .catch((err) => {
+      res.status(500).json({ error: err.message });
+    });
+});
 
 router.post("/cart", (req, res) => {
   const userid = req.session.user_id;
-  database.filterBooksByUser(userid)
-  .then((data) => {
+  database.filterBooksByUser(userid).then((data) => {
     const salesObject = {
       currentUser: req.session.user_id,
       email_address: req.body.emailAddress,
@@ -44,17 +57,15 @@ router.post("/cart", (req, res) => {
       securityCode: req.body.securityCode,
       creditFName: req.body.creditFirstName,
       creditLName: req.body.creditLastName,
-      saleItems: []
-    }
-    data.forEach(element => {
+      saleItems: [],
+    };
+    data.forEach((element) => {
       salesObject.saleItems.push(element.id);
-    })
+    });
     // res.json(salesObject);
     // res.json(data);
-    res.render("thankyou")
-  })
-})
+    res.render("thankyou");
+  });
+});
 
 module.exports = router;
-
-

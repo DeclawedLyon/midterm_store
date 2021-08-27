@@ -37,13 +37,16 @@
             <form action="messages/<%= book.owner_id %> " method="GET">
               <button class="btn btn-danger">Send Message</button>
             </form>
+            <form action="cart/<%= book.owner_id %> " method="GET">
+              <button class="btn btn-primary">Add to cart</button>
+            </form>
           </div>
+
 
           <div>
             <form type="submit" class="like" action="favorites/<%= book.id %> " method="GET">
               <button class="btn btn-danger btn-sm">Favourites</button>
             </form>
-
           </div>
 
         <% if (book.sold === true) { %>
